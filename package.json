@@ -24,7 +24,11 @@
         "changeset": "changeset",
         "release": "changeset publish",
         "clear": "rimraf packages/*/{lib,tsconfig.tsbuildinfo,node_modules} && rimraf node_modules",
-        "cz": "git-cz"
+        "cz": "git-cz",
+        "/* Alert for link */": "Need to launch git-bash by admin to ln -s on windows",
+        "link-prosemirror-commonmark": "cd packages/preset-commonmark/node_modules && rm -rf prosemirror-schema-list && npx cross-env MSYS=winsymlinks:nativestrict ln -s ../../../../prosemirror-schema-list . && cd ../../../",
+        "link-prosemirror-gfm": "cd packages/preset-gfm/node_modules && rm -rf prosemirror-schema-list && npx cross-env MSYS=winsymlinks:nativestrict ln -s ../../../../prosemirror-schema-list . && cd ../../../",
+        "link-prosemirror": "pnpm run link-prosemirror-commonmark && pnpm run link-prosemirror-gfm"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.14.8",
