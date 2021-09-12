@@ -9,6 +9,7 @@ import {
     LiftListItem,
     ModifyImage,
     nodes,
+    PopListItem,
     SinkListItem,
     SplitListItem,
     TurnIntoCodeFence,
@@ -52,5 +53,6 @@ export const commands = {
     SplitListItem,
     SinkListItem,
     LiftListItem,
+    PopListItem,
 } as const;
 export type Commands = typeof commands;

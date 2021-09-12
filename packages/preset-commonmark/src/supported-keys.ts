@@ -18,6 +18,7 @@ export const SupportedKeys = {
     NextListItem: 'NextListItem',
     SinkListItem: 'SinkListItem',
     LiftListItem: 'LiftListItem',
+    PopListItem: 'PopListItem',
 } as const;
 
 export type SupportedKeys = typeof SupportedKeys;

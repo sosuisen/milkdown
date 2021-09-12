@@ -31,7 +31,7 @@
         "@milkdown/preset-commonmark": "workspace:*",
         "@milkdown/utils": "workspace:*",
         "@types/prosemirror-schema-list": "^1.0.3",
-        "prosemirror-schema-list": "^1.1.4",
+        "prosemirror-schema-list": "git@github.com:sosuisen/prosemirror-schema-list.git#modify-liftlistitem",
         "tslib": "^2.2.0"
     },
     "devDependencies": {

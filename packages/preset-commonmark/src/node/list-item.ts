@@ -3,17 +3,22 @@ import { css } from '@emotion/css';
 import { createCmd, createCmdKey } from '@milkdown/core';
 import { createNode, createShortcut } from '@milkdown/utils';
 import { wrappingInputRule } from 'prosemirror-inputrules';
-import { liftListItem, sinkListItem, splitListItem } from 'prosemirror-schema-list';
+import { liftListItem, popListItem, sinkListItem, splitListItem } from 'prosemirror-schema-list';
 
 import { SupportedKeys } from '../supported-keys';
 
-type Keys = SupportedKeys['SinkListItem'] | SupportedKeys['LiftListItem'] | SupportedKeys['NextListItem'];
+type Keys =
+    | SupportedKeys['SinkListItem']
+    | SupportedKeys['LiftListItem']
+    | SupportedKeys['PopListItem']
+    | SupportedKeys['NextListItem'];
 
 const id = 'list_item';
 
 export const SplitListItem = createCmdKey();
 export const SinkListItem = createCmdKey();
 export const LiftListItem = createCmdKey();
+export const PopListItem = createCmdKey();
 
 export const listItem = createNode<Keys>((_, utils) => {
     const style = utils.getStyle(
@@ -63,11 +68,13 @@ export const listItem = createNode<Keys>((_, utils) => {
             createCmd(SplitListItem, () => splitListItem(nodeType)),
             createCmd(SinkListItem, () => sinkListItem(nodeType)),
             createCmd(LiftListItem, () => liftListItem(nodeType)),
+            createCmd(PopListItem, () => popListItem(nodeType)),
         ],
         shortcuts: {
             [SupportedKeys.NextListItem]: createShortcut(SplitListItem, 'Enter'),
             [SupportedKeys.SinkListItem]: createShortcut(SinkListItem, 'Mod-]'),
-            [SupportedKeys.LiftListItem]: createShortcut(LiftListItem, 'Mod-['),
+            [SupportedKeys.LiftListItem]: createShortcut(LiftListItem, 'Mod-Shift-['),
+            [SupportedKeys.PopListItem]: createShortcut(PopListItem, 'Mod-['),
         },
     };
 });
