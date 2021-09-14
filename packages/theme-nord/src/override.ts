@@ -18,9 +18,6 @@ export const override = ({ palette, mixin, size, font }: ThemeTool) => css`
 
         .editor {
             outline: none;
-            & > * {
-                margin: 1.875rem 0;
-            }
         }
 
         .ProseMirror-selectednode {
