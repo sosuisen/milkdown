@@ -23,7 +23,7 @@
         "postinstall": "husky install && tsc --build --verbose",
         "changeset": "changeset",
         "release": "changeset publish",
-        "clear": "npx rimraf packages/*/{lib,tsconfig.tsbuildinfo,node_modules} && npx rimraf node_modules",
+        "clear": "pnpx rimraf packages/*/{lib,tsconfig.tsbuildinfo,node_modules} && pnpx rimraf node_modules",
         "cz": "git-cz"
     },
     "devDependencies": {
