@@ -1,6 +1,8 @@
-import { Editor, editorViewOptionsCtx } from '@milkdown/core';
-import { prism } from '@milkdown/plugin-prism';
+/* Copyright 2021, Milkdown by Mirone. */
 import './style.css';
+
+import { Editor, editorViewOptionsCtx } from '@sosuisen/core';
+import { prism } from '@sosuisen/plugin-prism';
 
 const markdown = `
 # Milkdown Test

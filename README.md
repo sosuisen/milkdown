@@ -16,6 +16,10 @@ A plugin-driven WYSIWYG markdown Editor, inspired by [Typora](https://typora.io/
 
 The website is designed by [Meo](https://github.com/Saul-Meo). Powered by [Theme Nord](https://www.nordtheme.com/) and [Material Design](https://material.io/design).
 
+# Attention
+
+Forked from https://github.com/Saul-Mirone/milkdown
+
 # Documentation
 
 For more information, please check our official documentations:

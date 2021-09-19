@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { AtomList, createProsePlugin, Utils } from '@milkdown/utils';
+import { AtomList, createProsePlugin, Utils } from '@sosuisen/utils';
 
 import { config } from './config';
 import { WrappedAction } from './item';

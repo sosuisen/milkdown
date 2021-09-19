@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { ThemePack } from '@milkdown/design-system';
+import { ThemePack } from '@sosuisen/design-system';
 
 export const Nord = {
     nord0: '#2e3440',

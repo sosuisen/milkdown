@@ -1,7 +1,7 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { tableNodes, tablePlugins } from '@milkdown/plugin-table';
-import { commands as commonmarkCommands, commonmarkNodes, commonmarkPlugins } from '@milkdown/preset-commonmark';
-import { AtomList } from '@milkdown/utils';
+import { tableNodes, tablePlugins } from '@sosuisen/plugin-table';
+import { commands as commonmarkCommands, commonmarkNodes, commonmarkPlugins } from '@sosuisen/preset-commonmark';
+import { AtomList } from '@sosuisen/utils';
 
 import { urlPlugin } from './auto-link';
 import { strikeThrough, ToggleStrikeThrough } from './strike-through';
@@ -27,7 +27,7 @@ export {
     table,
     tableNodes,
     tablePlugins,
-} from '@milkdown/plugin-table';
+} from '@sosuisen/plugin-table';
 export {
     blockquote,
     bulletList,
@@ -69,7 +69,7 @@ export {
     WrapInBlockquote,
     WrapInBulletList,
     WrapInOrderedList,
-} from '@milkdown/preset-commonmark';
+} from '@sosuisen/preset-commonmark';
 
 export const gfmNodes = AtomList.create([...commonmarkNodes, ...tableNodes, strikeThrough(), taskListItem()]);
 export const gfmPlugins = AtomList.create([...tablePlugins, ...commonmarkPlugins, urlPlugin]);

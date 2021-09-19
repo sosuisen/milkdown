@@ -9,7 +9,7 @@ import type {
     Node,
     NodeViewFactory,
     ThemeTool,
-} from '@milkdown/core';
+} from '@sosuisen/core';
 
 import type { UnknownRecord } from '../type-utility';
 

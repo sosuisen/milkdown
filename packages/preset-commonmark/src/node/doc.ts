@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { createNode } from '@milkdown/utils';
+import { createNode } from '@sosuisen/utils';
 
 export const doc = createNode(() => ({
     id: 'doc',

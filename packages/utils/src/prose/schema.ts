@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { getAtomFromSchemaFail } from '@milkdown/exception';
+import { getAtomFromSchemaFail } from '@sosuisen/exception';
 import type { MarkType, NodeType, Schema } from 'prosemirror-model';
 
 export const getNodeFromSchema = (type: string, schema: Schema): NodeType => {

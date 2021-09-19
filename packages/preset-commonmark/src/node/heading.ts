@@ -1,7 +1,7 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { css } from '@emotion/css';
-import { createCmd, createCmdKey } from '@milkdown/core';
-import { createNode, createShortcut } from '@milkdown/utils';
+import { createCmd, createCmdKey } from '@sosuisen/core';
+import { createNode, createShortcut } from '@sosuisen/utils';
 import { setBlockType } from 'prosemirror-commands';
 import { textblockTypeInputRule } from 'prosemirror-inputrules';
 

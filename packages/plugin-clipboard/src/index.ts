@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { AtomList } from '@milkdown/utils';
+import { AtomList } from '@sosuisen/utils';
 
 import { clipboardPlugin } from './clipboard';
 

@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { Mark, MilkdownPlugin, Node } from '@milkdown/core';
+import { Mark, MilkdownPlugin, Node } from '@sosuisen/core';
 
 import { UnknownRecord } from '../type-utility';
 import { Origin, PluginWithMetadata } from './types';

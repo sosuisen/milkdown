@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { Editor } from '@milkdown/core';
+import { Editor } from '@sosuisen/core';
 import { Node } from 'prosemirror-model';
 import { Decoration, EditorView } from 'prosemirror-view';
 import React from 'react';

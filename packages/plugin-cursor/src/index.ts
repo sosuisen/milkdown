@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { injectGlobal } from '@emotion/css';
-import { prosePluginFactory, themeToolCtx } from '@milkdown/core';
+import { prosePluginFactory, themeToolCtx } from '@sosuisen/core';
 import { dropCursor } from 'prosemirror-dropcursor';
 import { gapCursor } from 'prosemirror-gapcursor';
 

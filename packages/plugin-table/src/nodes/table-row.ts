@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { createNode } from '@milkdown/utils';
+import { createNode } from '@sosuisen/utils';
 import { Node as MarkdownNode } from 'unist';
 
 import { schema } from './schema';

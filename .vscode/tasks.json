@@ -18,7 +18,7 @@
             "script": "doc",
             "isBackground": true,
             "label": "npm: doc",
-            "detail": "pnpm run start --filter @milkdown/gh-pages",
+            "detail": "pnpm run start --filter @sosuisen/gh-pages",
             "problemMatcher": [
                 {
                     "owner": "typescript",

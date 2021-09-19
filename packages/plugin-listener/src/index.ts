@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { createCtx, MilkdownPlugin, prosePluginsCtx, serializerCtx, SerializerReady } from '@milkdown/core';
+import { createCtx, MilkdownPlugin, prosePluginsCtx, serializerCtx, SerializerReady } from '@sosuisen/core';
 import { Node as ProseNode } from 'prosemirror-model';
 import { Plugin as StatePlugin } from 'prosemirror-state';
 

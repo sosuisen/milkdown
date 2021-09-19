@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { parserMatchError } from '@milkdown/exception';
+import { parserMatchError } from '@sosuisen/exception';
 import type { MarkType, NodeType, Schema } from 'prosemirror-model';
 
 import type { RemarkParser } from '../internal-plugin';

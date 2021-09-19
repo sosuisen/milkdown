@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { stackOverFlow } from '@milkdown/exception';
+import { stackOverFlow } from '@sosuisen/exception';
 
 type ElInstance<U> = {
     push: (node: U, ...rest: U[]) => void;

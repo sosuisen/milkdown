@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
 
-import { createProsePlugin } from '@milkdown/utils';
+import { createProsePlugin } from '@sosuisen/utils';
 import { Plugin, PluginKey } from 'prosemirror-state';
 import { CellSelection } from 'prosemirror-tables';
 import { Decoration, DecorationSet } from 'prosemirror-view';

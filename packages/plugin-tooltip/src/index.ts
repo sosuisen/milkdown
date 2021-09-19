@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { AtomList, createProsePlugin } from '@milkdown/utils';
+import { AtomList, createProsePlugin } from '@sosuisen/utils';
 import { Plugin, PluginKey } from 'prosemirror-state';
 
 import { buttonMap, inputMap } from './item';

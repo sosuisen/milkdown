@@ -1,8 +1,8 @@
 /* Copyright 2021, Milkdown by Mirone. */
 
-import { defaultValueCtx, Editor, editorViewCtx, rootCtx, serializerCtx } from '@milkdown/core';
-import { commonmark } from '@milkdown/preset-commonmark';
-import { nord } from '@milkdown/theme-nord';
+import { defaultValueCtx, Editor, editorViewCtx, rootCtx, serializerCtx } from '@sosuisen/core';
+import { commonmark } from '@sosuisen/preset-commonmark';
+import { nord } from '@sosuisen/theme-nord';
 import { WebsocketProvider } from 'y-websocket';
 import { Doc } from 'yjs';
 

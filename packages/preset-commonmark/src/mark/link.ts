@@ -1,7 +1,7 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { css } from '@emotion/css';
-import { createCmd, createCmdKey } from '@milkdown/core';
-import { createMark } from '@milkdown/utils';
+import { createCmd, createCmdKey } from '@sosuisen/core';
+import { createMark } from '@sosuisen/utils';
 import { toggleMark } from 'prosemirror-commands';
 import { InputRule } from 'prosemirror-inputrules';
 import { Node as ProseNode } from 'prosemirror-model';

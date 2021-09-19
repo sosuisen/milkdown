@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { prosePluginFactory } from '@milkdown/core';
+import { prosePluginFactory } from '@sosuisen/core';
 
 import { Prism } from './prism';
 

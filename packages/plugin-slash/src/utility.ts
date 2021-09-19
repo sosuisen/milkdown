@@ -1,7 +1,7 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import type { ThemeTool } from '@milkdown/core';
-import type { Icon } from '@milkdown/design-system';
-import type { Utils } from '@milkdown/utils';
+import type { ThemeTool } from '@sosuisen/core';
+import type { Icon } from '@sosuisen/design-system';
+import type { Utils } from '@sosuisen/utils';
 import type { Command } from 'prosemirror-commands';
 import type { Node, Schema } from 'prosemirror-model';
 

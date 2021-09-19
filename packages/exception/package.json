@@ -1,5 +1,5 @@
 {
-    "name": "@milkdown/exception",
+    "name": "@sosuisen/exception",
     "version": "4.11.1",
     "main": "lib/index.js",
     "module": "lib/index.js",
@@ -17,7 +17,7 @@
         "lib"
     ],
     "peerDependencies": {
-        "@milkdown/core": "*"
+        "@sosuisen/core": "*"
     },
     "dependencies": {
         "tslib": "^2.2.0"

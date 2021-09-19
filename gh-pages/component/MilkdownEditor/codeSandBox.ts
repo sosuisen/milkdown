@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { nodeFactory, remarkPluginFactory } from '@milkdown/core';
+import { nodeFactory, remarkPluginFactory } from '@sosuisen/core';
 import { Literal, Node } from 'unist';
 import { visit } from 'unist-util-visit';
 

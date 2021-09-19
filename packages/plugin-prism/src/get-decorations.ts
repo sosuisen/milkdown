@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { findChildren } from '@milkdown/utils';
+import { findChildren } from '@sosuisen/utils';
 import { Node } from 'prosemirror-model';
 import { Decoration, DecorationSet } from 'prosemirror-view';
 import { highlight, RefractorNode } from 'refractor';

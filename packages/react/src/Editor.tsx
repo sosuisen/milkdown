@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { Editor, editorViewCtx, NodeViewFactory } from '@milkdown/core';
+import { Editor, editorViewCtx, NodeViewFactory } from '@sosuisen/core';
 import React, { DependencyList, forwardRef, useImperativeHandle } from 'react';
 
 import { portalContext, Portals } from './Portals';

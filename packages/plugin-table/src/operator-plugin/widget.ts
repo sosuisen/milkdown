@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
 
-import { Ctx, themeToolCtx } from '@milkdown/core';
+import { Ctx, themeToolCtx } from '@sosuisen/core';
 import { Decoration, WidgetDecorationSpec } from 'prosemirror-view';
 
 import { CellPos, selectLine, selectTable } from '../utils';

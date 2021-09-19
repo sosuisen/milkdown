@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { css } from '@emotion/css';
-import { createNode } from '@milkdown/utils';
+import { createNode } from '@sosuisen/utils';
 import nodeEmoji from 'node-emoji';
 import { InputRule } from 'prosemirror-inputrules';
 

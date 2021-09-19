@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { injectVar, pack2Tool, ThemePack, ThemeTool } from '@milkdown/design-system';
+import { injectVar, pack2Tool, ThemePack, ThemeTool } from '@sosuisen/design-system';
 
 import { createCtx } from '../context';
 import { MilkdownPlugin } from '../utility';
@@ -12,7 +12,7 @@ export const themeToolCtx = createCtx<ThemeTool>({
     palette: () => '',
 });
 
-export { ThemeTool } from '@milkdown/design-system';
+export { ThemeTool } from '@sosuisen/design-system';
 
 export const themeFactory =
     (themePack: ThemePack): MilkdownPlugin =>

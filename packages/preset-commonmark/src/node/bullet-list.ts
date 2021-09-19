@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { createCmd, createCmdKey } from '@milkdown/core';
-import { createNode, createShortcut } from '@milkdown/utils';
+import { createCmd, createCmdKey } from '@sosuisen/core';
+import { createNode, createShortcut } from '@sosuisen/utils';
 import { wrapIn } from 'prosemirror-commands';
 import { wrappingInputRule } from 'prosemirror-inputrules';
 

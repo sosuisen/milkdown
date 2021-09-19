@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { injectGlobal } from '@emotion/css';
-import { ThemeTool } from '@milkdown/core';
+import { ThemeTool } from '@sosuisen/core';
 
 export const injectStyle = ({ size, palette, mixin }: ThemeTool) => {
     const css = injectGlobal;

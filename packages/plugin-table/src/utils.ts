@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { cloneTr, findParentNode } from '@milkdown/utils';
+import { cloneTr, findParentNode } from '@sosuisen/utils';
 import { Node as ProsemirrorNode, Schema } from 'prosemirror-model';
 import { Selection, Transaction } from 'prosemirror-state';
 import { CellSelection, TableMap, tableNodeTypes, TableRect } from 'prosemirror-tables';

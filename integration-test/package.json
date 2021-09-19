@@ -1,5 +1,5 @@
 {
-    "name": "@milkdown/integration-test",
+    "name": "@sosuisen/integration-test",
     "private": true,
     "version": "4.6.7",
     "scripts": {
@@ -18,10 +18,10 @@
     "dependencies": {
         "@playwright/test": "^1.14.0",
         "tslib": "^2.2.0",
-        "@milkdown/core": "workspace:*",
-        "@milkdown/preset-commonmark": "workspace:*",
-        "@milkdown/theme-nord": "workspace:*",
-        "@milkdown/design-system": "workspace:*"
+        "@sosuisen/core": "workspace:*",
+        "@sosuisen/preset-commonmark": "workspace:*",
+        "@sosuisen/theme-nord": "workspace:*",
+        "@sosuisen/design-system": "workspace:*"
     },
     "devDependencies": {
         "start-server-and-test": "^1.13.0"

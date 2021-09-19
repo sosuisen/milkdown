@@ -1,6 +1,7 @@
+/* Copyright 2021, Milkdown by Mirone. */
 export default {
     root: 'app',
     optimizeDeps: {
-        include: ['@milkdown/core', '@milkdown/preset-commonmark'],
+        include: ['@sosuisen/core', '@sosuisen/preset-commonmark'],
     },
 };

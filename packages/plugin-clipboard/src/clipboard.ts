@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { parserCtx, schemaCtx, serializerCtx } from '@milkdown/core';
-import { createProsePlugin } from '@milkdown/utils';
+import { parserCtx, schemaCtx, serializerCtx } from '@sosuisen/core';
+import { createProsePlugin } from '@sosuisen/utils';
 import { Node, Slice } from 'prosemirror-model';
 import { Plugin } from 'prosemirror-state';
 

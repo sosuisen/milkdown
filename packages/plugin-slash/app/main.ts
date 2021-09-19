@@ -1,10 +1,10 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import './style.css';
 
-import { Editor, editorViewOptionsCtx } from '@milkdown/core';
-import { prism } from '@milkdown/plugin-prism';
-import { table } from '@milkdown/plugin-table';
-import { marks, nodes } from '@milkdown/preset-commonmark';
+import { Editor, editorViewOptionsCtx } from '@sosuisen/core';
+import { prism } from '@sosuisen/plugin-prism';
+import { table } from '@sosuisen/plugin-table';
+import { marks, nodes } from '@sosuisen/preset-commonmark';
 
 import { slash } from '../src';
 

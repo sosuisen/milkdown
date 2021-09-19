@@ -19,9 +19,6 @@
             "path": "./packages/react"
         },
         {
-            "path": "./packages/vue"
-        },
-        {
             "path": "./packages/theme-nord"
         },
         {

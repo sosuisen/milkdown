@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { Attrs, Ctx, themeToolCtx } from '@milkdown/core';
-import { themeMustInstalled } from '@milkdown/exception';
+import { Attrs, Ctx, themeToolCtx } from '@sosuisen/core';
+import { themeMustInstalled } from '@sosuisen/exception';
 
 import { CommonOptions, Utils } from './types';
 

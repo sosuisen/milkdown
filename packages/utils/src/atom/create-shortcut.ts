@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { CmdKey } from '@milkdown/core';
+import { CmdKey } from '@sosuisen/core';
 
 import { CommandConfig } from './types';
 

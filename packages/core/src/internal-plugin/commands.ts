@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { callCommandBeforeEditorView } from '@milkdown/exception';
+import { callCommandBeforeEditorView } from '@sosuisen/exception';
 import type { Command } from 'prosemirror-commands';
 
 import { createContainer, createCtx, Meta } from '../context';
