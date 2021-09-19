@@ -1,11 +1,14 @@
 {
     "name": "milkdown",
     "version": "0.0.0",
-    "private": true,
+    "private": false,
     "workspaces": [
         "packages/*",
         "gh-pages"
     ],
+    "publishConfig": {
+        "publish-branch": "modify-for-sosuisen"
+    },
     "scripts": {
         "test": "pnpm test:doc && pnpm test:lint && pnpm test:tsc && pnpm test:unit && pnpm test:pw",
         "test:unit": "jest --passWithNoTests",
