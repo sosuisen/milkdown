@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
 
-import { Icon, ThemePack } from '@sosuisen/design-system';
+import { Icon, ThemePack } from '@sosuisen/milkdown-design-system';
 
 const iconMapping: Record<Icon, string> = {
     h1: 'looks_one',

@@ -1,8 +1,8 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { css } from '@emotion/css';
-import { createCmd, createCmdKey, themeToolCtx } from '@sosuisen/core';
-import type { Icon } from '@sosuisen/design-system';
-import { createNode, createShortcut } from '@sosuisen/utils';
+import { createCmd, createCmdKey, themeToolCtx } from '@sosuisen/milkdown-core';
+import type { Icon } from '@sosuisen/milkdown-design-system';
+import { createNode, createShortcut } from '@sosuisen/milkdown-utils';
 import { wrapIn } from 'prosemirror-commands';
 import { wrappingInputRule } from 'prosemirror-inputrules';
 import { liftListItem, sinkListItem, splitListItem } from 'prosemirror-schema-list';

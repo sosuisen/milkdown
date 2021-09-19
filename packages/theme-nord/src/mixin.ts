@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { css } from '@emotion/css';
-import { ThemePack } from '@sosuisen/design-system';
+import { ThemePack } from '@sosuisen/milkdown-design-system';
 
 export const mixin: ThemePack['mixin'] = ({ palette, size }) => ({
     scrollbar: (direction = 'y') => css`

@@ -1,5 +1,5 @@
 {
-    "name": "@sosuisen/plugin-prism",
+    "name": "@sosuisen/milkdown-plugin-prism",
     "version": "4.11.1",
     "main": "lib/index.js",
     "module": "lib/index.js",
@@ -21,10 +21,10 @@
         "milkdown plugin"
     ],
     "peerDependencies": {
-        "@sosuisen/core": "*"
+        "@sosuisen/milkdown-core": "*"
     },
     "dependencies": {
-        "@sosuisen/utils": "workspace:*",
+        "@sosuisen/milkdown-utils": "workspace:*",
         "@types/refractor": "^3.0.0",
         "refractor": "^3.3.1",
         "tslib": "^2.2.0"

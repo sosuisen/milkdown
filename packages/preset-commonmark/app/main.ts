@@ -1,8 +1,8 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import './style.css';
 
-import { defaultValueCtx, Editor, editorViewCtx, rootCtx, serializerCtx } from '@sosuisen/core';
-import { nord } from '@sosuisen/theme-nord';
+import { defaultValueCtx, Editor, editorViewCtx, rootCtx, serializerCtx } from '@sosuisen/milkdown-core';
+import { nord } from '@sosuisen/milkdown-theme-nord';
 
 import { commonmark } from '../src';
 

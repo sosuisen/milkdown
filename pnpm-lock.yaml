@@ -8,25 +8,25 @@ importers:
       '@changesets/cli': ^2.16.0
       '@commitlint/cli': ^12.1.1
       '@commitlint/config-conventional': ^12.1.1
-      '@sosuisen/core': workspace:*
-      '@sosuisen/design-system': workspace:*
-      '@sosuisen/exception': workspace:*
-      '@sosuisen/plugin-clipboard': workspace:*
-      '@sosuisen/plugin-collaborative': workspace:*
-      '@sosuisen/plugin-cursor': workspace:*
-      '@sosuisen/plugin-emoji': workspace:*
-      '@sosuisen/plugin-history': workspace:*
-      '@sosuisen/plugin-listener': workspace:*
-      '@sosuisen/plugin-math': workspace:*
-      '@sosuisen/plugin-prism': workspace:*
-      '@sosuisen/plugin-slash': workspace:*
-      '@sosuisen/plugin-table': workspace:*
-      '@sosuisen/plugin-tooltip': workspace:*
-      '@sosuisen/preset-commonmark': workspace:*
-      '@sosuisen/preset-gfm': workspace:*
-      '@sosuisen/react': workspace:*
-      '@sosuisen/theme-nord': workspace:*
-      '@sosuisen/utils': workspace:*
+      '@sosuisen/milkdown-core': workspace:*
+      '@sosuisen/milkdown-design-system': workspace:*
+      '@sosuisen/milkdown-exception': workspace:*
+      '@sosuisen/milkdown-plugin-clipboard': workspace:*
+      '@sosuisen/milkdown-plugin-collaborative': workspace:*
+      '@sosuisen/milkdown-plugin-cursor': workspace:*
+      '@sosuisen/milkdown-plugin-emoji': workspace:*
+      '@sosuisen/milkdown-plugin-history': workspace:*
+      '@sosuisen/milkdown-plugin-listener': workspace:*
+      '@sosuisen/milkdown-plugin-math': workspace:*
+      '@sosuisen/milkdown-plugin-prism': workspace:*
+      '@sosuisen/milkdown-plugin-slash': workspace:*
+      '@sosuisen/milkdown-plugin-table': workspace:*
+      '@sosuisen/milkdown-plugin-tooltip': workspace:*
+      '@sosuisen/milkdown-react': workspace:*
+      '@sosuisen/milkdown-theme-nord': workspace:*
+      '@sosuisen/milkdown-utils': workspace:*
+      '@sosuisen/milkdown-preset-commonmark': workspace:*
+      '@sosuisen/milkdown-preset-gfm': workspace:*
       '@types/jest': ^26.0.22
       '@types/prosemirror-commands': ^1.0.4
       '@types/prosemirror-dropcursor': ^1.0.2
@@ -76,25 +76,25 @@ importers:
       '@changesets/cli': 2.17.0
       '@commitlint/cli': 12.1.4
       '@commitlint/config-conventional': 12.1.4
-      '@sosuisen/core': link:packages/core
-      '@sosuisen/design-system': link:packages/design-system
-      '@sosuisen/exception': link:packages/exception
-      '@sosuisen/plugin-clipboard': link:packages/plugin-clipboard
-      '@sosuisen/plugin-collaborative': link:packages/plugin-collaborative
-      '@sosuisen/plugin-cursor': link:packages/plugin-cursor
-      '@sosuisen/plugin-emoji': link:packages/plugin-emoji
-      '@sosuisen/plugin-history': link:packages/plugin-history
-      '@sosuisen/plugin-listener': link:packages/plugin-listener
-      '@sosuisen/plugin-math': link:packages/plugin-math
-      '@sosuisen/plugin-prism': link:packages/plugin-prism
-      '@sosuisen/plugin-slash': link:packages/plugin-slash
-      '@sosuisen/plugin-table': link:packages/plugin-table
-      '@sosuisen/plugin-tooltip': link:packages/plugin-tooltip
-      '@sosuisen/preset-commonmark': link:packages/preset-commonmark
-      '@sosuisen/preset-gfm': link:packages/preset-gfm
-      '@sosuisen/react': link:packages/react
-      '@sosuisen/theme-nord': link:packages/theme-nord
-      '@sosuisen/utils': link:packages/utils
+      '@sosuisen/milkdown-core': link:packages/core
+      '@sosuisen/milkdown-design-system': link:packages/design-system
+      '@sosuisen/milkdown-exception': link:packages/exception
+      '@sosuisen/milkdown-plugin-clipboard': link:packages/plugin-clipboard
+      '@sosuisen/milkdown-plugin-collaborative': link:packages/plugin-collaborative
+      '@sosuisen/milkdown-plugin-cursor': link:packages/plugin-cursor
+      '@sosuisen/milkdown-plugin-emoji': link:packages/plugin-emoji
+      '@sosuisen/milkdown-plugin-history': link:packages/plugin-history
+      '@sosuisen/milkdown-plugin-listener': link:packages/plugin-listener
+      '@sosuisen/milkdown-plugin-math': link:packages/plugin-math
+      '@sosuisen/milkdown-plugin-prism': link:packages/plugin-prism
+      '@sosuisen/milkdown-plugin-slash': link:packages/plugin-slash
+      '@sosuisen/milkdown-plugin-table': link:packages/plugin-table
+      '@sosuisen/milkdown-plugin-tooltip': link:packages/plugin-tooltip
+      '@sosuisen/milkdown-react': link:packages/react
+      '@sosuisen/milkdown-theme-nord': link:packages/theme-nord
+      '@sosuisen/milkdown-utils': link:packages/utils
+      '@sosuisen/milkdown-preset-commonmark': link:packages/preset-commonmark
+      '@sosuisen/milkdown-preset-gfm': link:packages/preset-gfm
       '@types/jest': 26.0.24
       '@types/prosemirror-commands': 1.0.4
       '@types/prosemirror-dropcursor': 1.0.3
@@ -194,26 +194,26 @@ importers:
   integration-test:
     specifiers:
       '@playwright/test': ^1.14.0
-      '@sosuisen/core': workspace:*
-      '@sosuisen/design-system': workspace:*
-      '@sosuisen/preset-commonmark': workspace:*
-      '@sosuisen/theme-nord': workspace:*
+      '@sosuisen/milkdown-core': workspace:*
+      '@sosuisen/milkdown-design-system': workspace:*
+      '@sosuisen/milkdown-theme-nord': workspace:*
+      '@sosuisen/milkdown-preset-commonmark': workspace:*
       start-server-and-test: ^1.13.0
       tslib: ^2.2.0
     dependencies:
       '@playwright/test': 1.14.1
-      '@sosuisen/core': link:../packages/core
-      '@sosuisen/design-system': link:../packages/design-system
-      '@sosuisen/preset-commonmark': link:../packages/preset-commonmark
-      '@sosuisen/theme-nord': link:../packages/theme-nord
+      '@sosuisen/milkdown-core': link:../packages/core
+      '@sosuisen/milkdown-design-system': link:../packages/design-system
+      '@sosuisen/milkdown-theme-nord': link:../packages/theme-nord
+      '@sosuisen/milkdown-preset-commonmark': link:../packages/preset-commonmark
       tslib: 2.3.1
     devDependencies:
       start-server-and-test: 1.14.0
 
   packages/core:
     specifiers:
-      '@sosuisen/design-system': 'workspace: *'
-      '@sosuisen/exception': 'workspace: *'
+      '@sosuisen/milkdown-design-system': 'workspace: *'
+      '@sosuisen/milkdown-exception': 'workspace: *'
       '@types/prosemirror-commands': ^1.0.4
       '@types/prosemirror-inputrules': ^1.0.4
       '@types/prosemirror-keymap': ^1.0.4
@@ -230,8 +230,8 @@ importers:
       tslib: ^2.2.0
       unified: ^9.2.1
     dependencies:
-      '@sosuisen/design-system': link:../design-system
-      '@sosuisen/exception': link:../exception
+      '@sosuisen/milkdown-design-system': link:../design-system
+      '@sosuisen/milkdown-exception': link:../exception
       '@types/prosemirror-commands': 1.0.4
       '@types/prosemirror-inputrules': 1.0.4
       '@types/prosemirror-keymap': 1.0.4
@@ -267,16 +267,16 @@ importers:
 
   packages/plugin-clipboard:
     specifiers:
-      '@sosuisen/utils': 'workspace: *'
+      '@sosuisen/milkdown-utils': 'workspace: *'
       tslib: ^2.2.0
     dependencies:
-      '@sosuisen/utils': link:../utils
+      '@sosuisen/milkdown-utils': link:../utils
       tslib: 2.3.1
 
   packages/plugin-collaborative:
     specifiers:
       '@emotion/css': ^11.1.3
-      '@sosuisen/utils': workspace:*
+      '@sosuisen/milkdown-utils': workspace:*
       tslib: ^2.2.0
       y-prosemirror: ^1.0.9
       y-protocols: ^1.0.5
@@ -284,7 +284,7 @@ importers:
       yjs: ^13.5.11
     dependencies:
       '@emotion/css': 11.1.3
-      '@sosuisen/utils': link:../utils
+      '@sosuisen/milkdown-utils': link:../utils
       tslib: 2.3.1
       y-prosemirror: 1.0.9_00ada0a63dd556dce0249acbcf7f0cd4
     devDependencies:
@@ -312,7 +312,7 @@ importers:
     specifiers:
       '@emotion/css': ^11.1.3
       '@joeattardi/emoji-button': ^4.6.0
-      '@sosuisen/utils': 'workspace: *'
+      '@sosuisen/milkdown-utils': 'workspace: *'
       '@types/node-emoji': ^1.8.1
       '@types/twemoji': ^12.1.2
       emoji-regex: ^9.2.2
@@ -324,7 +324,7 @@ importers:
     dependencies:
       '@emotion/css': 11.1.3
       '@joeattardi/emoji-button': 4.6.0
-      '@sosuisen/utils': link:../utils
+      '@sosuisen/milkdown-utils': link:../utils
       '@types/node-emoji': 1.8.1
       '@types/twemoji': 12.1.2
       emoji-regex: 9.2.2
@@ -354,7 +354,7 @@ importers:
     specifiers:
       '@benrbray/prosemirror-math': ^0.2.2
       '@emotion/css': ^11.1.3
-      '@sosuisen/utils': workspace:*
+      '@sosuisen/milkdown-utils': workspace:*
       '@types/katex': ^0.11.1
       concurrently: ^6.0.2
       remark-math: ^4.0.0
@@ -362,7 +362,7 @@ importers:
     dependencies:
       '@benrbray/prosemirror-math': 0.2.2_8014dbcf692bbfcef9b32cdd236e5d44
       '@emotion/css': 11.1.3
-      '@sosuisen/utils': link:../utils
+      '@sosuisen/milkdown-utils': link:../utils
       remark-math: 4.0.0
       tslib: 2.3.1
     devDependencies:
@@ -371,12 +371,12 @@ importers:
 
   packages/plugin-prism:
     specifiers:
-      '@sosuisen/utils': workspace:*
+      '@sosuisen/milkdown-utils': workspace:*
       '@types/refractor': ^3.0.0
       refractor: ^3.3.1
       tslib: ^2.2.0
     dependencies:
-      '@sosuisen/utils': link:../utils
+      '@sosuisen/milkdown-utils': link:../utils
       '@types/refractor': 3.0.2
       refractor: 3.4.0
       tslib: 2.3.1
@@ -384,13 +384,13 @@ importers:
   packages/plugin-slash:
     specifiers:
       '@emotion/css': ^11.1.3
-      '@sosuisen/utils': workspace:*
+      '@sosuisen/milkdown-utils': workspace:*
       concurrently: ^6.0.2
       smooth-scroll-into-view-if-needed: ^1.1.32
       tslib: ^2.2.0
     dependencies:
       '@emotion/css': 11.1.3
-      '@sosuisen/utils': link:../utils
+      '@sosuisen/milkdown-utils': link:../utils
       smooth-scroll-into-view-if-needed: 1.1.32
       tslib: 2.3.1
     devDependencies:
@@ -399,14 +399,14 @@ importers:
   packages/plugin-table:
     specifiers:
       '@emotion/css': ^11.1.3
-      '@sosuisen/utils': workspace:*
+      '@sosuisen/milkdown-utils': workspace:*
       concurrently: ^6.0.2
       prosemirror-tables: '*'
       remark-gfm: ^1.0.0
       tslib: ^2.2.0
     dependencies:
       '@emotion/css': 11.1.3
-      '@sosuisen/utils': link:../utils
+      '@sosuisen/milkdown-utils': link:../utils
       prosemirror-tables: 1.1.1
       remark-gfm: 1.0.0
       tslib: 2.3.1
@@ -416,12 +416,12 @@ importers:
   packages/plugin-tooltip:
     specifiers:
       '@emotion/css': ^11.1.3
-      '@sosuisen/utils': 'workspace: *'
+      '@sosuisen/milkdown-utils': 'workspace: *'
       concurrently: ^6.0.2
       tslib: ^2.2.0
     dependencies:
       '@emotion/css': 11.1.3
-      '@sosuisen/utils': link:../utils
+      '@sosuisen/milkdown-utils': link:../utils
       tslib: 2.3.1
     devDependencies:
       concurrently: 6.2.1
@@ -429,7 +429,7 @@ importers:
   packages/preset-commonmark:
     specifiers:
       '@emotion/css': ^11.1.3
-      '@sosuisen/utils': 'workspace: *'
+      '@sosuisen/milkdown-utils': 'workspace: *'
       '@types/prosemirror-schema-list': ^1.0.3
       concurrently: ^6.0.2
       prosemirror-schema-list: git@github.com:sosuisen/prosemirror-schema-list.git#modify-liftlistitem
@@ -437,7 +437,7 @@ importers:
       tslib: ^2.2.0
     dependencies:
       '@emotion/css': 11.1.3
-      '@sosuisen/utils': link:../utils
+      '@sosuisen/milkdown-utils': link:../utils
       '@types/prosemirror-schema-list': 1.0.3
       prosemirror-schema-list: github.com/sosuisen/prosemirror-schema-list/c87a37e91d9fcfc9bf74debd28daa0725703a54c
       remark-inline-links: 5.0.0
@@ -448,18 +448,18 @@ importers:
   packages/preset-gfm:
     specifiers:
       '@emotion/css': ^11.1.3
-      '@sosuisen/plugin-table': workspace:*
-      '@sosuisen/preset-commonmark': workspace:*
-      '@sosuisen/utils': workspace:*
+      '@sosuisen/milkdown-plugin-table': workspace:*
+      '@sosuisen/milkdown-utils': workspace:*
+      '@sosuisen/milkdown-preset-commonmark': workspace:*
       '@types/prosemirror-schema-list': ^1.0.3
       concurrently: ^6.0.2
       prosemirror-schema-list: git@github.com:sosuisen/prosemirror-schema-list.git#modify-liftlistitem
       tslib: ^2.2.0
     dependencies:
       '@emotion/css': 11.1.3
-      '@sosuisen/plugin-table': link:../plugin-table
-      '@sosuisen/preset-commonmark': link:../preset-commonmark
-      '@sosuisen/utils': link:../utils
+      '@sosuisen/milkdown-plugin-table': link:../plugin-table
+      '@sosuisen/milkdown-utils': link:../utils
+      '@sosuisen/milkdown-preset-commonmark': link:../preset-commonmark
       '@types/prosemirror-schema-list': 1.0.3
       prosemirror-schema-list: github.com/sosuisen/prosemirror-schema-list/c87a37e91d9fcfc9bf74debd28daa0725703a54c
       tslib: 2.3.1
@@ -468,14 +468,14 @@ importers:
 
   packages/react:
     specifiers:
-      '@sosuisen/utils': workspace:*
+      '@sosuisen/milkdown-utils': workspace:*
       '@types/react': '*'
       '@types/react-dom': '*'
       react: '*'
       react-dom: '*'
       tslib: ^2.2.0
     dependencies:
-      '@sosuisen/utils': link:../utils
+      '@sosuisen/milkdown-utils': link:../utils
       tslib: 2.3.1
     devDependencies:
       '@types/react': 17.0.21
@@ -486,17 +486,17 @@ importers:
   packages/theme-nord:
     specifiers:
       '@emotion/css': ^11.1.3
-      '@sosuisen/design-system': workspace:*
+      '@sosuisen/milkdown-design-system': workspace:*
     dependencies:
       '@emotion/css': 11.1.3
-      '@sosuisen/design-system': link:../design-system
+      '@sosuisen/milkdown-design-system': link:../design-system
 
   packages/utils:
     specifiers:
-      '@sosuisen/exception': 'workspace: *'
+      '@sosuisen/milkdown-exception': 'workspace: *'
       tslib: ^2.2.0
     dependencies:
-      '@sosuisen/exception': link:../exception
+      '@sosuisen/milkdown-exception': link:../exception
       tslib: 2.3.1
 
 packages:
@@ -2707,7 +2707,7 @@ packages:
     engines: {node: '>= 10.14.2'}
     dependencies:
       '@jest/types': 26.6.2
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       chalk: 4.1.2
       jest-message-util: 26.6.2
       jest-util: 26.6.2
@@ -2723,7 +2723,7 @@ packages:
       '@jest/test-result': 26.6.2
       '@jest/transform': 26.6.2
       '@jest/types': 26.6.2
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       exit: 0.1.2
@@ -2760,7 +2760,7 @@ packages:
     dependencies:
       '@jest/fake-timers': 26.6.2
       '@jest/types': 26.6.2
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       jest-mock: 26.6.2
     dev: true
 
@@ -2770,7 +2770,7 @@ packages:
     dependencies:
       '@jest/types': 26.6.2
       '@sinonjs/fake-timers': 6.0.1
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       jest-message-util: 26.6.2
       jest-mock: 26.6.2
       jest-util: 26.6.2
@@ -2907,7 +2907,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.3
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       '@types/yargs': 15.0.14
       chalk: 4.1.2
 
@@ -2917,7 +2917,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.3
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       '@types/yargs': 16.0.4
       chalk: 4.1.2
     dev: true
@@ -3106,7 +3106,7 @@ packages:
   /@types/graceful-fs/4.1.5:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
     dependencies:
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
     dev: true
 
   /@types/hast/2.3.4:
@@ -3169,8 +3169,8 @@ packages:
     resolution: {integrity: sha512-hcTWqk7DR/HrN9Xe7AlJwuCaL13Vcd9/g/T54YrJz4Q3ESM5mr33YCzW2bOfzSIc3aZMeGBvbLGvgN6mIJ0I5Q==}
     dev: true
 
-  /@types/node/16.9.2:
-    resolution: {integrity: sha512-ZHty/hKoOLZvSz6BtP1g7tc7nUeJhoCf3flLjh8ZEv1vFKBWHXcnMbJMyN/pftSljNyy0kNW/UqI3DccnBnZ8w==}
+  /@types/node/16.9.3:
+    resolution: {integrity: sha512-5UmMznRvrwKqisJ458JbNoq3AyXHxlAKMkGtNe143W1SkZ1BVgvCHYBzn7wD66J+smE+BolqA1mes5BeXlWY6w==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -3336,7 +3336,7 @@ packages:
     resolution: {integrity: sha512-8uALY5LTvSuHgloDVUvWP3pIauILm+8/0pDMokuDYIoNsOkSwd5AiHBTSEJjKTDcZr5z8UpgOWZkxBF4iJftoA==}
     requiresBuild: true
     dependencies:
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
     dev: false
     optional: true
 
@@ -6288,7 +6288,7 @@ packages:
       '@jest/environment': 26.6.2
       '@jest/fake-timers': 26.6.2
       '@jest/types': 26.6.2
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       jest-mock: 26.6.2
       jest-util: 26.6.2
       jsdom: 16.7.0
@@ -6306,7 +6306,7 @@ packages:
       '@jest/environment': 26.6.2
       '@jest/fake-timers': 26.6.2
       '@jest/types': 26.6.2
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       jest-mock: 26.6.2
       jest-util: 26.6.2
     dev: true
@@ -6321,7 +6321,7 @@ packages:
     dependencies:
       '@jest/types': 26.6.2
       '@types/graceful-fs': 4.1.5
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       anymatch: 3.1.2
       fb-watchman: 2.0.1
       graceful-fs: 4.2.8
@@ -6342,7 +6342,7 @@ packages:
     dependencies:
       '@jest/types': 27.1.1
       '@types/graceful-fs': 4.1.5
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       anymatch: 3.1.2
       fb-watchman: 2.0.1
       graceful-fs: 4.2.8
@@ -6365,7 +6365,7 @@ packages:
       '@jest/source-map': 26.6.2
       '@jest/test-result': 26.6.2
       '@jest/types': 26.6.2
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       chalk: 4.1.2
       co: 4.6.0
       expect: 26.6.2
@@ -6422,7 +6422,7 @@ packages:
     engines: {node: '>= 10.14.2'}
     dependencies:
       '@jest/types': 26.6.2
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
     dev: true
 
   /jest-pnp-resolver/1.2.2_jest-resolve@26.6.2:
@@ -6477,7 +6477,7 @@ packages:
       '@jest/environment': 26.6.2
       '@jest/test-result': 26.6.2
       '@jest/types': 26.6.2
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       chalk: 4.1.2
       emittery: 0.7.2
       exit: 0.1.2
@@ -6545,7 +6545,7 @@ packages:
     resolution: {integrity: sha512-S5wqyz0DXnNJPd/xfIzZ5Xnp1HrJWBczg8mMfMpN78OJ5eDxXyf+Ygld9wX1DnUWbIbhM1YDY95NjR4CBXkb2g==}
     engines: {node: '>= 10.14.2'}
     dependencies:
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       graceful-fs: 4.2.8
     dev: true
 
@@ -6553,7 +6553,7 @@ packages:
     resolution: {integrity: sha512-PtGdVK9EGC7dsaziskfqaAPib6wTViY3G8E5wz9tLVPhHyiDNTZn/xjZ4khAw+09QkoOVpn7vF5nPSN6dtBexA==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       graceful-fs: 4.2.8
     dev: true
 
@@ -6584,7 +6584,7 @@ packages:
     engines: {node: '>= 10.14.2'}
     dependencies:
       '@jest/types': 26.6.2
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       chalk: 4.1.2
       graceful-fs: 4.2.8
       is-ci: 2.0.0
@@ -6596,7 +6596,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/types': 27.1.1
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       chalk: 4.1.2
       graceful-fs: 4.2.8
       is-ci: 3.0.0
@@ -6621,7 +6621,7 @@ packages:
     dependencies:
       '@jest/test-result': 26.6.2
       '@jest/types': 26.6.2
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       jest-util: 26.6.2
@@ -6632,7 +6632,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: true
@@ -6641,7 +6641,7 @@ packages:
     resolution: {integrity: sha512-laB0ZVIBz+voh/QQy9dmUuuDsadixeerrKqyVpgPz+CCWiOYjOBabUXHIXZhsdvkWbLqSHbgkAHWl5cg24Q6RA==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 16.9.2
+      '@types/node': 16.9.3
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true

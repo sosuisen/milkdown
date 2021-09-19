@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { editorViewCtx, parserCtx } from '@sosuisen/core';
-import { EditorRef, ReactEditor, useEditor } from '@sosuisen/react';
+import { editorViewCtx, parserCtx } from '@sosuisen/milkdown-core';
+import { EditorRef, ReactEditor, useEditor } from '@sosuisen/milkdown-react';
 import { Slice } from 'prosemirror-model';
 import React, { forwardRef } from 'react';
 

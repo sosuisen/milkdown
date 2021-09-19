@@ -1,7 +1,7 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { commandsCtx, Ctx } from '@sosuisen/core';
-import { ModifyImage, ModifyLink } from '@sosuisen/preset-commonmark';
-import { findChildren } from '@sosuisen/utils';
+import { commandsCtx, Ctx } from '@sosuisen/milkdown-core';
+import { ModifyImage, ModifyLink } from '@sosuisen/milkdown-preset-commonmark';
+import { findChildren } from '@sosuisen/milkdown-utils';
 import { Node as ProseNode } from 'prosemirror-model';
 
 import { Event2Command, Updater } from '../item';

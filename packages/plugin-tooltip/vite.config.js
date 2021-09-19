@@ -2,6 +2,6 @@
 export default {
     root: 'app',
     optimizeDeps: {
-        exclude: ['@sosuisen/core', '@sosuisen/preset-commonmark'],
+        exclude: ['@sosuisen/milkdown-core', '@sosuisen/milkdown-preset-commonmark'],
     },
 };

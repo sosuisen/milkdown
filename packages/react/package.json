@@ -1,5 +1,5 @@
 {
-    "name": "@sosuisen/react",
+    "name": "@sosuisen/milkdown-react",
     "version": "4.11.1",
     "main": "lib/index.js",
     "module": "lib/index.js",
@@ -22,11 +22,11 @@
         "react"
     ],
     "dependencies": {
-        "@sosuisen/utils": "workspace:*",
+        "@sosuisen/milkdown-utils": "workspace:*",
         "tslib": "^2.2.0"
     },
     "peerDependencies": {
-        "@sosuisen/core": "*",
+        "@sosuisen/milkdown-core": "*",
         "react": "*",
         "react-dom": "*"
     },

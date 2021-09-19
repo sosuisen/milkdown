@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { findParentNode } from '@sosuisen/utils';
+import { findParentNode } from '@sosuisen/milkdown-utils';
 import type { MarkType, Node, NodeType } from 'prosemirror-model';
 import { EditorState, TextSelection } from 'prosemirror-state';
 

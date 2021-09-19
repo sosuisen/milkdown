@@ -1,5 +1,5 @@
 {
-    "name": "@sosuisen/plugin-listener",
+    "name": "@sosuisen/milkdown-plugin-listener",
     "version": "4.11.1",
     "main": "lib/index.js",
     "module": "lib/index.js",
@@ -21,7 +21,7 @@
         "milkdown plugin"
     ],
     "peerDependencies": {
-        "@sosuisen/core": "*"
+        "@sosuisen/milkdown-core": "*"
     },
     "dependencies": {
         "tslib": "^2.2.0"

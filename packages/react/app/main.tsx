@@ -1,9 +1,9 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import './style.css';
 
-import { defaultValueCtx, Editor, rootCtx } from '@sosuisen/core';
-import { blockquote, commonmark, image, paragraph } from '@sosuisen/preset-commonmark';
-import { nord } from '@sosuisen/theme-nord';
+import { defaultValueCtx, Editor, rootCtx } from '@sosuisen/milkdown-core';
+import { blockquote, commonmark, image, paragraph } from '@sosuisen/milkdown-preset-commonmark';
+import { nord } from '@sosuisen/milkdown-theme-nord';
 import React from 'react';
 import { render } from 'react-dom';
 

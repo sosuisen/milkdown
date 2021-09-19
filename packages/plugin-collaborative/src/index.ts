@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { AtomList, createProsePlugin } from '@sosuisen/utils';
+import { AtomList, createProsePlugin } from '@sosuisen/milkdown-utils';
 import { keymap } from 'prosemirror-keymap';
 import { redo, undo, yCursorPlugin, ySyncPlugin, yUndoPlugin } from 'y-prosemirror';
 import type { Awareness } from 'y-protocols/awareness';

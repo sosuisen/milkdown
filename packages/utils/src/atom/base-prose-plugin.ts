@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { prosePluginFactory } from '@sosuisen/core';
+import { prosePluginFactory } from '@sosuisen/milkdown-core';
 import type { Plugin } from 'prosemirror-state';
 
 import { UnknownRecord } from '../type-utility';

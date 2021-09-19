@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import type { Editor, NodeViewFactory } from '@sosuisen/core';
-import { getId } from '@sosuisen/utils';
+import type { Editor, NodeViewFactory } from '@sosuisen/milkdown-core';
+import { getId } from '@sosuisen/milkdown-utils';
 import type { Node } from 'prosemirror-model';
 import type { Decoration, EditorView, NodeView } from 'prosemirror-view';
 import React from 'react';

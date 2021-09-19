@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { injectGlobal } from '@emotion/css';
-import { themeFactory } from '@sosuisen/core';
+import { themeFactory } from '@sosuisen/milkdown-core';
 
 import { code, typography } from './font';
 import { mixin } from './mixin';

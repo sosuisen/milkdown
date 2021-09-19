@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { Utils } from '@sosuisen/utils';
+import { Utils } from '@sosuisen/milkdown-utils';
 import type { EditorView } from 'prosemirror-view';
 
 import type { Event2Command, InputMap } from '../item';

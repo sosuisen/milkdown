@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { calculateTextPosition } from '@sosuisen/utils';
+import { calculateTextPosition } from '@sosuisen/milkdown-utils';
 import type { EditorView } from 'prosemirror-view';
 
 export const calcInputPos = (view: EditorView, input: HTMLDivElement) => {

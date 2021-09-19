@@ -1,7 +1,13 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { Ctx } from '@sosuisen/core';
-import { ToggleBold, ToggleInlineCode, ToggleItalic, ToggleLink, ToggleStrikeThrough } from '@sosuisen/preset-gfm';
-import { findSelectedNodeOfType } from '@sosuisen/utils';
+import { Ctx } from '@sosuisen/milkdown-core';
+import {
+    ToggleBold,
+    ToggleInlineCode,
+    ToggleItalic,
+    ToggleLink,
+    ToggleStrikeThrough,
+} from '@sosuisen/milkdown-preset-gfm';
+import { findSelectedNodeOfType } from '@sosuisen/milkdown-utils';
 import type { Schema } from 'prosemirror-model';
 import { EditorView } from 'prosemirror-view';
 

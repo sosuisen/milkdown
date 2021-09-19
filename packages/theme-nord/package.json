@@ -1,5 +1,5 @@
 {
-    "name": "@sosuisen/theme-nord",
+    "name": "@sosuisen/milkdown-theme-nord",
     "version": "4.11.1",
     "main": "lib/index.js",
     "module": "lib/index.js",
@@ -13,7 +13,7 @@
         "build": "tsc"
     },
     "peerDependencies": {
-        "@sosuisen/core": "*"
+        "@sosuisen/milkdown-core": "*"
     },
     "files": [
         "lib"
@@ -25,6 +25,6 @@
     ],
     "dependencies": {
         "@emotion/css": "^11.1.3",
-        "@sosuisen/design-system": "workspace:*"
+        "@sosuisen/milkdown-design-system": "workspace:*"
     }
 }

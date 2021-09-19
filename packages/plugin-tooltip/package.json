@@ -1,6 +1,6 @@
 {
-    "name": "@sosuisen/plugin-tooltip",
-    "version": "4.11.1",
+    "name": "@sosuisen/milkdown-plugin-tooltip",
+    "version": "4.11.2",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -21,12 +21,12 @@
         "milkdown plugin"
     ],
     "peerDependencies": {
-        "@sosuisen/core": "*",
-        "@sosuisen/preset-gfm": "*"
+        "@sosuisen/milkdown-core": "*",
+        "@sosuisen/milkdown-preset-gfm": "*"
     },
     "dependencies": {
         "@emotion/css": "^11.1.3",
-        "@sosuisen/utils": "workspace: *",
+        "@sosuisen/milkdown-utils": "workspace: *",
         "tslib": "^2.2.0"
     },
     "devDependencies": {

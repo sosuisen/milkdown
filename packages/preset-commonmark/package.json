@@ -1,5 +1,5 @@
 {
-    "name": "@sosuisen/preset-commonmark",
+    "name": "@sosuisen/milkdown-preset-commonmark",
     "version": "4.11.1",
     "main": "lib/index.js",
     "module": "lib/index.js",
@@ -23,11 +23,11 @@
         "commonmark"
     ],
     "peerDependencies": {
-        "@sosuisen/core": "*"
+        "@sosuisen/milkdown-core": "*"
     },
     "dependencies": {
         "@emotion/css": "^11.1.3",
-        "@sosuisen/utils": "workspace: *",
+        "@sosuisen/milkdown-utils": "workspace: *",
         "@types/prosemirror-schema-list": "^1.0.3",
         "prosemirror-schema-list": "git@github.com:sosuisen/prosemirror-schema-list.git#modify-liftlistitem",
         "remark-inline-links": "^5.0.0",

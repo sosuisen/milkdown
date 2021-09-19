@@ -1,7 +1,7 @@
 /* Copyright 2021, Milkdown by Mirone. */
 
 import { css } from '@emotion/css';
-import { ThemeTool } from '@sosuisen/design-system';
+import { ThemeTool } from '@sosuisen/milkdown-design-system';
 
 export const override = ({ palette, mixin, size, font }: ThemeTool) => css`
     .milkdown {

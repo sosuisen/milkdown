@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { themeToolCtx } from '@sosuisen/core';
-import { Utils } from '@sosuisen/utils';
+import { themeToolCtx } from '@sosuisen/milkdown-core';
+import { Utils } from '@sosuisen/milkdown-utils';
 import { Command } from 'prosemirror-commands';
 import {
     addColumnAfter,

@@ -6,7 +6,7 @@ import {
     REGEX_INLINE_MATH_DOLLARS,
 } from '@benrbray/prosemirror-math';
 import { injectGlobal } from '@emotion/css';
-import { AtomList, createNode } from '@sosuisen/utils';
+import { AtomList, createNode } from '@sosuisen/milkdown-utils';
 
 import { style } from './style';
 

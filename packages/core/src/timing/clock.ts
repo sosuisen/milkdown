@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { timerNotFound } from '@sosuisen/exception';
+import { timerNotFound } from '@sosuisen/milkdown-exception';
 
 import { Timing } from './timing';
 

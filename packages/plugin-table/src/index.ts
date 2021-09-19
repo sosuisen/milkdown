@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { prosePluginFactory, remarkPluginFactory } from '@sosuisen/core';
-import { AtomList } from '@sosuisen/utils';
+import { prosePluginFactory, remarkPluginFactory } from '@sosuisen/milkdown-core';
+import { AtomList } from '@sosuisen/milkdown-utils';
 import { columnResizing, tableEditing } from 'prosemirror-tables';
 import gfm from 'remark-gfm';
 

@@ -1,5 +1,5 @@
 {
-    "name": "@sosuisen/plugin-history",
+    "name": "@sosuisen/milkdown-plugin-history",
     "version": "4.11.1",
     "main": "lib/index.js",
     "module": "lib/index.js",
@@ -21,7 +21,7 @@
         "milkdown plugin"
     ],
     "peerDependencies": {
-        "@sosuisen/core": "*"
+        "@sosuisen/milkdown-core": "*"
     },
     "dependencies": {
         "@types/prosemirror-history": "^1.0.2",

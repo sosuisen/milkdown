@@ -1,7 +1,7 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { injectGlobal } from '@emotion/css';
 import { EmojiButton } from '@joeattardi/emoji-button';
-import { createProsePlugin, Utils } from '@sosuisen/utils';
+import { createProsePlugin, Utils } from '@sosuisen/milkdown-utils';
 import { Plugin } from 'prosemirror-state';
 import { Decoration, DecorationSet, EditorView } from 'prosemirror-view';
 

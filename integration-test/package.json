@@ -18,10 +18,10 @@
     "dependencies": {
         "@playwright/test": "^1.14.0",
         "tslib": "^2.2.0",
-        "@sosuisen/core": "workspace:*",
-        "@sosuisen/preset-commonmark": "workspace:*",
-        "@sosuisen/theme-nord": "workspace:*",
-        "@sosuisen/design-system": "workspace:*"
+        "@sosuisen/milkdown-core": "workspace:*",
+        "@sosuisen/milkdown-preset-commonmark": "workspace:*",
+        "@sosuisen/milkdown-theme-nord": "workspace:*",
+        "@sosuisen/milkdown-design-system": "workspace:*"
     },
     "devDependencies": {
         "start-server-and-test": "^1.13.0"

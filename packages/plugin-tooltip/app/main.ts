@@ -1,8 +1,8 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import './style.css';
 
-import { Editor, editorViewOptionsCtx } from '@sosuisen/core';
-import { marks, nodes } from '@sosuisen/preset-commonmark';
+import { Editor, editorViewOptionsCtx } from '@sosuisen/milkdown-core';
+import { marks, nodes } from '@sosuisen/milkdown-preset-commonmark';
 
 import { tooltip } from '../src';
 

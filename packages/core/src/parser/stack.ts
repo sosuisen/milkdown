@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { createNodeInParserFail, stackOverFlow } from '@sosuisen/exception';
+import { createNodeInParserFail, stackOverFlow } from '@sosuisen/milkdown-exception';
 import { Mark, MarkType, Node, NodeType } from 'prosemirror-model';
 
 import { getStackUtil, maybeMerge } from '../utility';

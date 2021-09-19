@@ -1,16 +1,23 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { Complete, defaultValueCtx, Editor, editorViewOptionsCtx, MilkdownPlugin, rootCtx } from '@sosuisen/core';
-import { clipboard } from '@sosuisen/plugin-clipboard';
-import { cursor } from '@sosuisen/plugin-cursor';
-import { emoji } from '@sosuisen/plugin-emoji';
-import { history } from '@sosuisen/plugin-history';
-import { listener, listenerCtx } from '@sosuisen/plugin-listener';
-import { math } from '@sosuisen/plugin-math';
-import { prism } from '@sosuisen/plugin-prism';
-import { slash } from '@sosuisen/plugin-slash';
-import { tooltip } from '@sosuisen/plugin-tooltip';
-import { gfm } from '@sosuisen/preset-gfm';
-import { nord } from '@sosuisen/theme-nord';
+import {
+    Complete,
+    defaultValueCtx,
+    Editor,
+    editorViewOptionsCtx,
+    MilkdownPlugin,
+    rootCtx,
+} from '@sosuisen/milkdown-core';
+import { clipboard } from '@sosuisen/milkdown-plugin-clipboard';
+import { cursor } from '@sosuisen/milkdown-plugin-cursor';
+import { emoji } from '@sosuisen/milkdown-plugin-emoji';
+import { history } from '@sosuisen/milkdown-plugin-history';
+import { listener, listenerCtx } from '@sosuisen/milkdown-plugin-listener';
+import { math } from '@sosuisen/milkdown-plugin-math';
+import { prism } from '@sosuisen/milkdown-plugin-prism';
+import { slash } from '@sosuisen/milkdown-plugin-slash';
+import { tooltip } from '@sosuisen/milkdown-plugin-tooltip';
+import { gfm } from '@sosuisen/milkdown-preset-gfm';
+import { nord } from '@sosuisen/milkdown-theme-nord';
 
 import { codeSandBox } from './codeSandBox';
 

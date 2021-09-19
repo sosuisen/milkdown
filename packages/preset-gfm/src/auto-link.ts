@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { prosePluginFactory } from '@sosuisen/core';
+import { prosePluginFactory } from '@sosuisen/milkdown-core';
 import { InputRule, inputRules } from 'prosemirror-inputrules';
 
 const urlRegex =

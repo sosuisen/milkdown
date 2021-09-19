@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { remarkPluginFactory } from '@sosuisen/core';
-import { AtomList } from '@sosuisen/utils';
+import { remarkPluginFactory } from '@sosuisen/milkdown-core';
+import { AtomList } from '@sosuisen/milkdown-utils';
 import remarkEmoji from 'remark-emoji';
 
 import { filter } from './filter';

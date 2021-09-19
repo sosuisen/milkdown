@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { commandsCtx, themeToolCtx } from '@sosuisen/core';
+import { commandsCtx, themeToolCtx } from '@sosuisen/milkdown-core';
 import {
     InsertHr,
     InsertImage,
@@ -10,7 +10,7 @@ import {
     WrapInBlockquote,
     WrapInBulletList,
     WrapInOrderedList,
-} from '@sosuisen/preset-gfm';
+} from '@sosuisen/milkdown-preset-gfm';
 
 import type { SlashConfig } from '.';
 import { createDropdownItem, nodeExists } from './utility';

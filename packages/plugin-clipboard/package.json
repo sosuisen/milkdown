@@ -1,5 +1,5 @@
 {
-    "name": "@sosuisen/plugin-clipboard",
+    "name": "@sosuisen/milkdown-plugin-clipboard",
     "version": "4.11.1",
     "main": "lib/index.js",
     "module": "lib/index.js",
@@ -21,10 +21,10 @@
         "milkdown plugin"
     ],
     "peerDependencies": {
-        "@sosuisen/core": "*"
+        "@sosuisen/milkdown-core": "*"
     },
     "dependencies": {
-        "@sosuisen/utils": "workspace: *",
+        "@sosuisen/milkdown-utils": "workspace: *",
         "tslib": "^2.2.0"
     }
 }

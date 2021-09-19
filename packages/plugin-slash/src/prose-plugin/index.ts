@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { Utils } from '@sosuisen/utils';
+import { Utils } from '@sosuisen/milkdown-utils';
 import { Plugin, PluginKey } from 'prosemirror-state';
 
 import { transformAction, WrappedAction } from '../item';

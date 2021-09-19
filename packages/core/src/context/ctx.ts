@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { ctxCallOutOfScope } from '@sosuisen/exception';
+import { ctxCallOutOfScope } from '@sosuisen/milkdown-exception';
 export type Context<T = unknown> = {
     id: symbol;
     set: (value: T) => void;

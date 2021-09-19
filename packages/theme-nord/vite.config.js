@@ -2,6 +2,6 @@
 export default {
     root: 'app',
     optimizeDeps: {
-        include: ['@sosuisen/core', '@sosuisen/plugin-prism'],
+        include: ['@sosuisen/milkdown-core', '@sosuisen/milkdown-plugin-prism'],
     },
 };
