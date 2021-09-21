@@ -44,7 +44,10 @@ export const link = createMark((_, utils) => {
                     },
                 },
             ],
-            toDOM: (mark) => ['a', { ...mark.attrs, class: utils.getClassName(mark.attrs, id, style) }],
+            toDOM: (mark) => [
+                'a',
+                { ...mark.attrs, class: utils.getClassName(mark.attrs, id, style), target: '_blank' },
+            ],
         },
         parser: {
             match: (node) => node.type === 'link',

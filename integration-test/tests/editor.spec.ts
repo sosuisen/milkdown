@@ -138,6 +138,8 @@ test.describe('input:', () => {
 
             const link = await editor.waitForSelector('.link');
             expect(await link.getAttribute('href')).toBe('url');
+
+            expect(await link.getAttribute('target')).toBe('_blank');
         });
     });
 });
