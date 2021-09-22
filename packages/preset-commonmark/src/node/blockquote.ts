@@ -51,7 +51,7 @@ export const blockquote = createNode<Keys>((_, utils) => {
         inputRules: (nodeType) => [
             // wrappingInputRule(/^\s*>\s$/, nodeType),
             wrappingInputRule(/^\s*jkladjlkgfalkjt>\s$/, nodeType),
-            new InputRule(/(?<cmd>\s*>\s)/, (state, match, start, end) => {
+            new InputRule(/^(?<cmd>\s*>\s)/, (state, match, start, end) => {
                 const [okay, cmd] = match;
                 // eslint-disable-next-line no-console
                 console.log(`## match (${start}, ${end}):[${cmd}]`);
