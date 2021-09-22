@@ -3,7 +3,7 @@ import { css } from '@emotion/css';
 import { createCmd, createCmdKey } from '@sosuisen/milkdown-core';
 import { createNode, createShortcut } from '@sosuisen/milkdown-utils';
 import { wrapIn } from 'prosemirror-commands';
-import { InputRule, wrappingInputRule } from 'prosemirror-inputrules';
+import { wrappingInputRule } from 'prosemirror-inputrules';
 
 import { SupportedKeys } from '../supported-keys';
 
@@ -50,25 +50,26 @@ export const blockquote = createNode<Keys>((_, utils) => {
         },
         inputRules: (nodeType) => [
             // wrappingInputRule(/^\s*>\s$/, nodeType),
-            wrappingInputRule(/^\s*jkladjlkgfalkjt>\s$/, nodeType),
-            new InputRule(/^(?<cmd>\s*>\s)/, (state, match, start, end) => {
-                const [okay, cmd] = match;
-                // eslint-disable-next-line no-console
-                console.log(`## match (${start}, ${end}):[${cmd}]`);
-                const { tr } = state;
-                if (okay) {
-                    /*
+            wrappingInputRule(/\s*>\s$/, nodeType),
+            /*
+new InputRule(/^(?<cmd>\s*>\s)/, (state, match, start, end) => {
+const [okay, cmd] = match;
+// eslint-disable-next-line no-console
+console.log(`## match (${start}, ${end}):[${cmd}]`);
+const { tr } = state;
+if (okay) {
+
 const content = text || 'link';
 tr.replaceWith(start, end, schema.text(content)).addMark(
 start,
 content.length + start,
 markType.create({ title, href }),
 );
-*/
-                }
 
-                return tr;
-            }),
+}
+
+return tr;
+}),*/
         ],
         commands: (nodeType) => [createCmd(WrapInBlockquote, () => wrapIn(nodeType))],
         shortcuts: {
