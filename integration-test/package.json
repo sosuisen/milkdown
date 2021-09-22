@@ -16,14 +16,14 @@
         "style"
     ],
     "dependencies": {
-        "@playwright/test": "^1.14.0",
-        "tslib": "^2.2.0",
         "@sosuisen/milkdown-core": "workspace:*",
+        "@sosuisen/milkdown-design-system": "workspace:*",
         "@sosuisen/milkdown-preset-commonmark": "workspace:*",
         "@sosuisen/milkdown-theme-nord": "workspace:*",
-        "@sosuisen/milkdown-design-system": "workspace:*"
+        "tslib": "^2.2.0"
     },
     "devDependencies": {
+        "@playwright/test": "^1.14.1",
         "start-server-and-test": "^1.13.0"
     }
 }
