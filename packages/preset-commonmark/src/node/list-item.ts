@@ -43,7 +43,7 @@ export const listItem = createNode<Keys>((_, utils) => {
         schema: {
             group: 'listItem',
             //            content: 'paragraph block*',
-            content: '(paragraph | blockquote | fence | hr | heading)+',
+            content: 'block+',
             defining: true,
             parseDOM: [{ tag: 'li' }],
             toDOM: (node) => ['li', { class: utils.getClassName(node.attrs, 'list-item', style) }, 0],
