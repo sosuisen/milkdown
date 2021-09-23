@@ -432,7 +432,6 @@ importers:
       '@sosuisen/milkdown-utils': 'workspace: *'
       '@types/prosemirror-schema-list': ^1.0.3
       concurrently: ^6.0.2
-      prosemirror-inputrules: git@github.com:sosuisen/prosemirror-inputrules
       prosemirror-schema-list: git@github.com:sosuisen/prosemirror-schema-list.git#modify-liftlistitem
       remark-inline-links: ^5.0.0
       tslib: ^2.2.0
@@ -440,7 +439,6 @@ importers:
       '@emotion/css': 11.1.3
       '@sosuisen/milkdown-utils': link:../utils
       '@types/prosemirror-schema-list': 1.0.3
-      prosemirror-inputrules: github.com/sosuisen/prosemirror-inputrules/e85ab6e8a675a1afec0e13758ae8a309a2ee8f46
       prosemirror-schema-list: github.com/sosuisen/prosemirror-schema-list/c87a37e91d9fcfc9bf74debd28daa0725703a54c
       remark-inline-links: 5.0.0
       tslib: 2.3.1
@@ -10211,17 +10209,6 @@ packages:
 
   /zwitch/1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
-    dev: false
-
-  github.com/sosuisen/prosemirror-inputrules/e85ab6e8a675a1afec0e13758ae8a309a2ee8f46:
-    resolution: {tarball: https://codeload.github.com/sosuisen/prosemirror-inputrules/tar.gz/e85ab6e8a675a1afec0e13758ae8a309a2ee8f46}
-    name: prosemirror-inputrules
-    version: 1.1.3
-    prepare: true
-    requiresBuild: true
-    dependencies:
-      prosemirror-state: 1.3.4
-      prosemirror-transform: 1.3.2
     dev: false
 
   github.com/sosuisen/prosemirror-schema-list/c87a37e91d9fcfc9bf74debd28daa0725703a54c:
