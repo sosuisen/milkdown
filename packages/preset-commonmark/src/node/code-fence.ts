@@ -188,7 +188,8 @@ export const codeFence = createNode<Keys, { languageList?: string[] }>((options,
             match: ({ type }) => type === 'code',
             runner: (state, node, type) => {
                 const language = node.lang as string;
-                const value = node.value as string;
+                let value = node.value as string;
+                if (!value) value = ' ';
                 state.openNode(type, { language });
                 state.addText(value);
                 state.closeNode();
