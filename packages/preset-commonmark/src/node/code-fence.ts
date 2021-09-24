@@ -10,7 +10,6 @@ import { SupportedKeys } from '../supported-keys';
 type Keys = SupportedKeys['CodeFence'];
 
 const languageOptions = [
-    '',
     'javascript',
     'typescript',
     'bash',
@@ -156,7 +155,7 @@ export const codeFence = createNode<Keys, { languageList?: string[] }>((options,
             code: true,
             attrs: {
                 language: {
-                    default: '',
+                    default: 'javascript',
                 },
                 fold: {
                     default: true,

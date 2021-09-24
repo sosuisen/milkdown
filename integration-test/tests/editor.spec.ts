@@ -116,6 +116,15 @@ test.describe('input:', () => {
             expect(fence).toBeDefined();
             expect(await fence.getAttribute('data-language')).toBe('markdown');
         });
+
+        test('code block default language is javascript', async ({ page }) => {
+            const editor = await page.waitForSelector('.editor');
+
+            await editor.type('``` ');
+            const fence = await editor.waitForSelector('.code-fence');
+            expect(fence).toBeDefined();
+            expect(await fence.getAttribute('data-language')).toBe('javascript');
+        });
     });
 
     test.describe('mark:', () => {
