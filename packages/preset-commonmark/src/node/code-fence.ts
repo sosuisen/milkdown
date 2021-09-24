@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { css } from '@emotion/css';
-import { createCmd, createCmdKey, themeToolCtx } from '@sosuisen/milkdown-core';
+import { createCmd, createCmdKey } from '@sosuisen/milkdown-core';
 import { createNode, createShortcut } from '@sosuisen/milkdown-utils';
 import { setBlockType } from 'prosemirror-commands';
 import { textblockTypeInputRule } from 'prosemirror-inputrules';
@@ -225,7 +225,11 @@ export const codeFence = createNode<Keys, { languageList?: string[] }>((options,
             valueWrapper.className = 'code-fence_value';
             const value = document.createElement('span');
             valueWrapper.appendChild(value);
-            valueWrapper.appendChild(utils.ctx.get(themeToolCtx).slots.icon('downArrow'));
+            // valueWrapper.appendChild(utils.ctx.get(themeToolCtx).slots.icon('downArrow'));
+            // Use font-awesome instead of material icon
+            const downArrow = document.createElement('span');
+            downArrow.classList.add('fas', 'fa-chevron-down');
+            valueWrapper.appendChild(downArrow);
 
             select.className = 'code-fence_select';
             select.addEventListener('mousedown', (e) => {
