@@ -49,10 +49,10 @@ test.describe('input:', () => {
             expect(await blockquote.waitForSelector('p:last-child >> text=Next line.')).toBeTruthy();
         });
 
-        test.only('blockquote in a list item', async ({ page }) => {
+        test('blockquote in a list item', async ({ page }) => {
             const editor = await page.waitForSelector('.editor');
 
-            await editor.type('> Blockquote');
+            await editor.type('- > Blockquote');
             const blockquote = await page.waitForSelector('.blockquote');
 
             expect(await blockquote.$$('p')).toHaveLength(1);
