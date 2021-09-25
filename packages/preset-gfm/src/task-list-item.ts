@@ -82,7 +82,9 @@ export const taskListItem = createNode<Keys>((options, utils) => {
             },
             parseDOM: [
                 {
-                    tag: 'li[data-type="task-list-item"]',
+                    // tag: 'li[data-type="task-list-item"]',
+                    tag: 'li[data-type="task-item"]', // should be same value as data-type in toDOM()
+                    priority: 60, // Higher priority than normal list-item is required.
                     getAttrs: (dom) => {
                         if (!(dom instanceof HTMLElement)) {
                             throw new Error();
