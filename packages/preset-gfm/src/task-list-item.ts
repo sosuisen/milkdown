@@ -72,7 +72,8 @@ export const taskListItem = createNode<Keys>((options, utils) => {
         id,
         schema: {
             group: 'listItem',
-            content: 'paragraph block*',
+            // content: 'paragraph block*',
+            content: 'block+',
             defining: true,
             attrs: {
                 checked: {
