@@ -59,6 +59,7 @@ export {
     ModifyLink,
     orderedList,
     paragraph,
+    PopListItem,
     SinkListItem,
     SplitListItem,
     strong,
