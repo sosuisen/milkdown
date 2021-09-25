@@ -1,11 +1,11 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { css } from '@emotion/css';
-import { createCmd, createCmdKey, themeToolCtx } from '@sosuisen/milkdown-core';
+import { createCmd, createCmdKey } from '@sosuisen/milkdown-core';
 import type { Icon } from '@sosuisen/milkdown-design-system';
 import { createNode, createShortcut } from '@sosuisen/milkdown-utils';
 import { wrapIn } from 'prosemirror-commands';
 import { wrappingInputRule } from 'prosemirror-inputrules';
-import { liftListItem, sinkListItem, splitListItem } from 'prosemirror-schema-list';
+import { liftListItem, popListItem, sinkListItem, splitListItem } from 'prosemirror-schema-list';
 
 import { SupportedKeys } from './supported-keys';
 
@@ -14,6 +14,7 @@ type Keys = Extract<keyof SupportedKeys, 'SinkListItem' | 'LiftListItem' | 'Next
 export const SplitTaskListItem = createCmdKey();
 export const SinkTaskListItem = createCmdKey();
 export const LiftTaskListItem = createCmdKey();
+export const PopTaskListItem = createCmdKey();
 export const TurnIntoTaskList = createCmdKey();
 
 export const taskListItem = createNode<Keys>((options, utils) => {
