@@ -2,8 +2,9 @@
 import { prosePluginFactory } from '@sosuisen/milkdown-core';
 import { InputRule, inputRules } from 'prosemirror-inputrules';
 
+// const urlRegex = /(https?:\/\/)?www\.[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z]{2,}\b(?:[-a-zA-Z0-9@:%._+~#=?!&/]*)(?:[-a-zA-Z0-9@:%._+~#=?!&/]*)$/;
 const urlRegex =
-    /(https?:\/\/)?www\.[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z]{2,}\b(?:[-a-zA-Z0-9@:%._+~#=?!&/]*)(?:[-a-zA-Z0-9@:%._+~#=?!&/]*)$/;
+    /https?:\/\/[-a-zA-Z0-9@:%._+~#=]+\.[-a-zA-Z0-9@:%._+~#=]{2,}\b(?:[-a-zA-Z0-9@:%._+~#=?!&/]*)(?:[-a-zA-Z0-9@:%._+~#=?!&/]*)$/;
 
 const proseUrlPlugin = () =>
     inputRules({
@@ -13,13 +14,14 @@ const proseUrlPlugin = () =>
                 const [text] = match;
                 if (!text) return null;
 
-                return state.tr
-                    .replaceWith(start, end, schema.text(text))
-                    .addMark(
-                        start,
-                        text.length + start,
-                        schema.marks.link.create({ href: text.startsWith('www') ? `https://${text}` : text }),
-                    );
+                return state.tr.replaceWith(start, end, schema.text(text)).addMark(
+                    start,
+                    text.length + start,
+                    schema.marks.link.create({
+                        href: text.startsWith('www') ? `https://${text}` : text,
+                        target: '_blank',
+                    }),
+                );
             }),
         ],
     });
