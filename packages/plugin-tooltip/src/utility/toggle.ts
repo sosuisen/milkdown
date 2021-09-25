@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { CmdKey, commandsCtx, Ctx, themeToolCtx } from '@sosuisen/milkdown-core';
+import { CmdKey, commandsCtx, Ctx } from '@sosuisen/milkdown-core';
 import type { Icon } from '@sosuisen/milkdown-design-system';
 import type { MarkType } from 'prosemirror-model';
 

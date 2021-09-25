@@ -1,6 +1,6 @@
 {
     "name": "@sosuisen/milkdown-plugin-tooltip",
-    "version": "4.11.2",
+    "version": "4.11.3-alpha.0",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "types": "lib/index.d.ts",
