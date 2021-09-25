@@ -131,19 +131,38 @@ export const taskListItem = createNode<Keys>((options, utils) => {
             createCmd(SplitTaskListItem, () => splitListItem(nodeType)),
             createCmd(SinkTaskListItem, () => sinkListItem(nodeType)),
             createCmd(LiftTaskListItem, () => liftListItem(nodeType)),
+            createCmd(PopTaskListItem, () => popListItem(nodeType)),
             createCmd(TurnIntoTaskList, () => wrapIn(nodeType)),
         ],
         shortcuts: {
             [SupportedKeys.NextListItem]: createShortcut(SplitTaskListItem, 'Enter'),
             [SupportedKeys.SinkListItem]: createShortcut(SinkTaskListItem, 'Mod-]'),
-            [SupportedKeys.LiftListItem]: createShortcut(LiftTaskListItem, 'Mod-['),
-            [SupportedKeys.TaskList]: createShortcut(TurnIntoTaskList, 'Mod-Alt-9'),
+            [SupportedKeys.LiftListItem]: createShortcut(LiftTaskListItem, 'Mod-Shift-['),
+            [SupportedKeys.PopListItem]: createShortcut(PopTaskListItem, 'Mod-['),
+            // [SupportedKeys.TaskList]: createShortcut(TurnIntoTaskList, 'Mod-Alt-9'),
+            [SupportedKeys.TaskList]: createShortcut(TurnIntoTaskList, 'Mod-Enter'),
         },
         view: (editor, nodeType, node, view, getPos, decorations) => {
             if (options?.view) {
                 return options.view(editor, nodeType, node, view, getPos, decorations);
             }
-            const createIcon = utils.ctx.get(themeToolCtx).slots.icon;
+            // const createIcon = utils.ctx.get(themeToolCtx).slots.icon;
+            const fontAwesomeIcon = (id: string) => {
+                const span = document.createElement('span');
+                let fontAwesome = '';
+                switch (id) {
+                    case 'checked':
+                        fontAwesome = 'fa-check-square';
+                        break;
+                    case 'unchecked':
+                        fontAwesome = 'fa-square';
+                        break;
+                    default:
+                        break;
+                }
+                span.className = 'icon far ' + fontAwesome;
+                return span;
+            };
 
             const listItem = document.createElement('li');
             const checkboxWrapper = document.createElement('label');
@@ -151,10 +170,10 @@ export const taskListItem = createNode<Keys>((options, utils) => {
             const checkbox = document.createElement('input');
             const content = document.createElement('div');
 
-            let icon = createIcon('unchecked');
+            let icon = fontAwesomeIcon('unchecked');
             checkboxWrapper.appendChild(icon);
             const setIcon = (name: Icon) => {
-                const nextIcon = createIcon(name);
+                const nextIcon = fontAwesomeIcon(name);
                 checkboxWrapper.replaceChild(nextIcon, icon);
                 icon = nextIcon;
             };
