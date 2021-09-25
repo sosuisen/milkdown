@@ -14,7 +14,7 @@ const fontAwesomeIcon = (id: string) => {
             fontAwesome = 'fa-bold';
             break;
         case 'italic':
-            fontAwesome = 'fa-bold';
+            fontAwesome = 'fa-italic';
             break;
         case 'strikeThrough':
             fontAwesome = 'fa-strikethrough';
