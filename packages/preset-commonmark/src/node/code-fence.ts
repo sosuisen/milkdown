@@ -2,7 +2,7 @@
 import { css } from '@emotion/css';
 import { createCmd, createCmdKey } from '@sosuisen/milkdown-core';
 import { createNode, createShortcut } from '@sosuisen/milkdown-utils';
-import { setBlockType } from 'prosemirror-commands';
+import { exitCode, setBlockType } from 'prosemirror-commands';
 import { textblockTypeInputRule } from 'prosemirror-inputrules';
 
 import { SupportedKeys } from '../supported-keys';
@@ -291,7 +291,21 @@ export const codeFence = createNode<Keys, { languageList?: string[] }>((options,
             selectWrapper.append(select);
             pre.append(code);
 
-            container.append(selectWrapper, pre);
+            const footer = document.createElement('div');
+            footer.className = 'code-fence_footer';
+            footer.contentEditable = 'false';
+            const insertParagraphButton = document.createElement('span');
+            insertParagraphButton.className = 'fas fa-angle-double-down';
+            insertParagraphButton.title = 'Exit from code';
+            insertParagraphButton.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (!view.editable) return;
+                exitCode(view.state, view.dispatch);
+            });
+            footer.appendChild(insertParagraphButton);
+
+            container.append(selectWrapper, pre, footer);
             container.setAttribute('class', utils.getClassName(node.attrs, 'code-fence', style));
             container.setAttribute('data-language', node.attrs.language);
             value.innerText = node.attrs.language || '--';
