@@ -11,6 +11,7 @@ import { clipboard } from '@sosuisen/milkdown-plugin-clipboard';
 import { cursor } from '@sosuisen/milkdown-plugin-cursor';
 import { emoji } from '@sosuisen/milkdown-plugin-emoji';
 import { history } from '@sosuisen/milkdown-plugin-history';
+import { i18n, i18nCtx } from '@sosuisen/milkdown-plugin-i18n';
 import { listener, listenerCtx } from '@sosuisen/milkdown-plugin-listener';
 import { math } from '@sosuisen/milkdown-plugin-math';
 import { prism } from '@sosuisen/milkdown-plugin-prism';
@@ -43,12 +44,14 @@ export const createEditor = (
             ctx.set(defaultValueCtx, defaultValue);
             ctx.set(editorViewOptionsCtx, { editable: () => !readOnly });
             ctx.set(listenerCtx, { markdown: onChange ? [onChange] : [] });
+            ctx.set(i18nCtx, { Meta: 'Ctrl', exitCode: 'Press $1 + Enter to exit from code' });
         })
         .use(nord)
         .use(gfm)
         .use(codeSandBox)
         .use(complete(() => setEditorReady(true)))
         .use(clipboard)
+        .use(i18n)
         .use(listener)
         .use(history)
         .use(cursor)

@@ -1,6 +1,7 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { css } from '@emotion/css';
 import { createCmd, createCmdKey } from '@sosuisen/milkdown-core';
+import { i18nCtx } from '@sosuisen/milkdown-plugin-i18n';
 import { createNode, createShortcut } from '@sosuisen/milkdown-utils';
 import { exitCode, setBlockType } from 'prosemirror-commands';
 import { textblockTypeInputRule } from 'prosemirror-inputrules';
@@ -291,19 +292,34 @@ export const codeFence = createNode<Keys, { languageList?: string[] }>((options,
             selectWrapper.append(select);
             pre.append(code);
 
+            let exitCodeMessage = '';
+            try {
+                const i18n = utils.ctx.get(i18nCtx);
+
+                if (i18n) {
+                    exitCodeMessage = i18n['exitCode'];
+                }
+                exitCodeMessage = exitCodeMessage.replace('$1', i18n['Meta']);
+                // eslint-disable-next-line no-empty
+            } catch (e) {}
+
+            // Use font-awesome instead of material icon
             const footer = document.createElement('div');
             footer.className = 'code-fence_footer';
             footer.contentEditable = 'false';
-            const insertParagraphButton = document.createElement('span');
-            insertParagraphButton.className = 'fas fa-angle-double-down';
-            insertParagraphButton.title = 'Exit from code';
-            insertParagraphButton.addEventListener('mousedown', (e) => {
+            const exitCodeButton = document.createElement('span');
+            exitCodeButton.className = 'fas fa-angle-double-down';
+            exitCodeButton.title = exitCodeMessage;
+            exitCodeButton.addEventListener('mousedown', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 if (!view.editable) return;
                 exitCode(view.state, view.dispatch);
             });
-            footer.appendChild(insertParagraphButton);
+            footer.appendChild(exitCodeButton);
+            const exitCodeLabel = document.createElement('span');
+            exitCodeLabel.innerText = exitCodeMessage;
+            footer.appendChild(exitCodeLabel);
 
             container.append(selectWrapper, pre, footer);
             container.setAttribute('class', utils.getClassName(node.attrs, 'code-fence', style));
