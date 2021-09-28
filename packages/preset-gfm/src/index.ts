@@ -11,6 +11,7 @@ import { urlPlugin } from './auto-link';
 import { strikeThrough, ToggleStrikeThrough } from './strike-through';
 import {
     LiftTaskListItem,
+    PopTaskListItem,
     SinkTaskListItem,
     SplitTaskListItem,
     taskListItem,
@@ -86,6 +87,7 @@ export const commands = {
     TurnIntoTaskList,
     SinkTaskListItem,
     LiftTaskListItem,
+    PopTaskListItem,
     SplitTaskListItem,
 } as const;
 export type Commands = typeof commands;

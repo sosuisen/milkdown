@@ -139,8 +139,7 @@ export const taskListItem = createNode<Keys>((options, utils) => {
             [SupportedKeys.SinkListItem]: createShortcut(SinkTaskListItem, 'Mod-]'),
             [SupportedKeys.LiftListItem]: createShortcut(LiftTaskListItem, 'Mod-Shift-['),
             [SupportedKeys.PopListItem]: createShortcut(PopTaskListItem, 'Mod-['),
-            // [SupportedKeys.TaskList]: createShortcut(TurnIntoTaskList, 'Mod-Alt-9'),
-            [SupportedKeys.TaskList]: createShortcut(TurnIntoTaskList, 'Mod-Enter'),
+            [SupportedKeys.TaskList]: createShortcut(TurnIntoTaskList, 'Mod-Alt-9'),
         },
         view: (editor, nodeType, node, view, getPos, decorations) => {
             if (options?.view) {

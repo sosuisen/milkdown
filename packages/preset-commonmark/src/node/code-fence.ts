@@ -31,6 +31,7 @@ const languageOptions = [
 const inputRegex = /^```(?<language>[a-z]*)? $/;
 
 export const TurnIntoCodeFence = createCmdKey();
+export const ExitCodeFence = createCmdKey();
 
 const id = 'fence';
 export const codeFence = createNode<Keys, { languageList?: string[] }>((options, utils) => {
@@ -208,9 +209,16 @@ export const codeFence = createNode<Keys, { languageList?: string[] }>((options,
                 return { language };
             }),
         ],
-        commands: (nodeType) => [createCmd(TurnIntoCodeFence, () => setBlockType(nodeType))],
+        commands: (nodeType) => [
+            createCmd(TurnIntoCodeFence, () => setBlockType(nodeType)),
+            createCmd(ExitCodeFence, () => (state, dispatch) => {
+                exitCode(state, dispatch);
+                return true;
+            }),
+        ],
         shortcuts: {
             [SupportedKeys.CodeFence]: createShortcut(TurnIntoCodeFence, 'Mod-Alt-c'),
+            [SupportedKeys.ExitCodeFence]: createShortcut(ExitCodeFence, 'Mod-ArrowDown'),
         },
         view: (editor, nodeType, node, view, getPos, decorations) => {
             if (options?.view) {
