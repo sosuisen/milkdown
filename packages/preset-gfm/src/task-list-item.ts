@@ -9,7 +9,7 @@ import { liftListItem, popListItem, sinkListItem, splitListItem } from 'prosemir
 
 import { SupportedKeys } from './supported-keys';
 
-type Keys = Extract<keyof SupportedKeys, 'SinkListItem' | 'LiftListItem' | 'NextListItem' | 'TaskList'>;
+type Keys = Extract<keyof SupportedKeys, 'SinkListItem' | 'LiftListItem' | 'NextListItem' | 'PopListItem' | 'TaskList'>;
 
 export const SplitTaskListItem = createCmdKey();
 export const SinkTaskListItem = createCmdKey();

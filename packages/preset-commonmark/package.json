@@ -1,6 +1,6 @@
 {
     "name": "@sosuisen/milkdown-preset-commonmark",
-    "version": "4.11.3-alpha.11",
+    "version": "4.11.3-alpha.12",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "types": "lib/index.d.ts",

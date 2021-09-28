@@ -8,7 +8,7 @@ import { textblockTypeInputRule } from 'prosemirror-inputrules';
 
 import { SupportedKeys } from '../supported-keys';
 
-type Keys = SupportedKeys['CodeFence'];
+type Keys = SupportedKeys['CodeFence'] | SupportedKeys['ExitCodeFence'];
 
 const languageOptions = [
     'javascript',
