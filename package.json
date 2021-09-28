@@ -39,6 +39,7 @@
         "@sosuisen/milkdown-plugin-cursor": "workspace:*",
         "@sosuisen/milkdown-plugin-emoji": "workspace:*",
         "@sosuisen/milkdown-plugin-history": "workspace:*",
+        "@sosuisen/milkdown-plugin-i18n": "workspace:*",
         "@sosuisen/milkdown-plugin-listener": "workspace:*",
         "@sosuisen/milkdown-plugin-math": "workspace:*",
         "@sosuisen/milkdown-plugin-prism": "workspace:*",

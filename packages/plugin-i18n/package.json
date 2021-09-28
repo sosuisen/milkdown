@@ -1,0 +1,29 @@
+{
+    "name": "@sosuisen/milkdown-plugin-i18n",
+    "version": "4.11.1",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "sideEffects": false,
+    "license": "MIT",
+    "scripts": {
+        "start": "vite",
+        "watch": "tsc -w",
+        "test": "jest",
+        "tsc": "tsc --noEmit",
+        "build": "tsc"
+    },
+    "files": [
+        "lib"
+    ],
+    "keywords": [
+        "milkdown",
+        "milkdown plugin"
+    ],
+    "peerDependencies": {
+        "@sosuisen/milkdown-core": "*"
+    },
+    "dependencies": {
+        "tslib": "^2.2.0"
+    }
+}

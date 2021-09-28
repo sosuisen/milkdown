@@ -16,6 +16,7 @@ importers:
       '@sosuisen/milkdown-plugin-cursor': workspace:*
       '@sosuisen/milkdown-plugin-emoji': workspace:*
       '@sosuisen/milkdown-plugin-history': workspace:*
+      '@sosuisen/milkdown-plugin-i18n': workspace:*
       '@sosuisen/milkdown-plugin-listener': workspace:*
       '@sosuisen/milkdown-plugin-math': workspace:*
       '@sosuisen/milkdown-plugin-prism': workspace:*
@@ -84,6 +85,7 @@ importers:
       '@sosuisen/milkdown-plugin-cursor': link:packages/plugin-cursor
       '@sosuisen/milkdown-plugin-emoji': link:packages/plugin-emoji
       '@sosuisen/milkdown-plugin-history': link:packages/plugin-history
+      '@sosuisen/milkdown-plugin-i18n': link:packages/plugin-i18n
       '@sosuisen/milkdown-plugin-listener': link:packages/plugin-listener
       '@sosuisen/milkdown-plugin-math': link:packages/plugin-math
       '@sosuisen/milkdown-plugin-prism': link:packages/plugin-prism
@@ -342,6 +344,12 @@ importers:
     dependencies:
       '@types/prosemirror-history': 1.0.3
       prosemirror-history: 1.2.0
+      tslib: 2.3.1
+
+  packages/plugin-i18n:
+    specifiers:
+      tslib: ^2.2.0
+    dependencies:
       tslib: 2.3.1
 
   packages/plugin-listener:

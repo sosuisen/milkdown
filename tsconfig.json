@@ -46,6 +46,9 @@
             "path": "./packages/plugin-cursor"
         },
         {
+            "path": "./packages/plugin-i18n"
+        },
+        {
             "path": "./packages/plugin-listener"
         },
         {
