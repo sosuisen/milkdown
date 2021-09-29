@@ -200,7 +200,9 @@ export const codeFence = createNode<Keys, { languageList?: string[] }>((options,
         serializer: {
             match: (node) => node.type.name === id,
             runner: (state, node) => {
-                state.addNode('code', undefined, node.content.firstChild?.text || '', { lang: node.attrs.language });
+                // \n is temporally replaced with \r to avoid replacing with \n&nbsp\n; in TreeStickies.
+                const text = node.content.firstChild?.text?.replace(/\n/g, '\r');
+                state.addNode('code', undefined, text || '', { lang: node.attrs.language });
             },
         },
         inputRules: (nodeType) => [
