@@ -21,15 +21,18 @@ export const injectStyle = (themeTool: ThemeTool) => {
             position: relative;
             color: ${palette('solid', 0.87)};
 
-            width: 3rem;
-            line-height: 3rem;
+            width: 2rem;
+            line-height: 2rem;
             text-align: center;
             transition: all 0.4s ease-in-out;
+            border: 1px solid ${palette('surface', 0.87)};
             &:hover {
                 background-color: ${palette('secondary', 0.12)};
             }
             &.active {
-                color: ${palette('primary')};
+                color: #000030;
+                background-color: #f0f0ff;
+                border: 1px inset #f0f0ff;
             }
             &:not(:last-child)::after {
                 content: '';

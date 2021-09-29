@@ -17,7 +17,7 @@ export const injectStyle = (themeTool: ThemeTool) => {
         border-radius: ${size.radius};
         font-size: 1rem;
 
-        height: 3.5rem;
+        height: 2rem;
         box-sizing: border-box;
         width: 20.5rem;
         padding: 0 1rem;
