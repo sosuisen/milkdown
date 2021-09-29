@@ -199,6 +199,17 @@ export const taskListItem = createNode<Keys>((options, utils) => {
             };
             checkbox.addEventListener('change', onChange);
 
+            checkboxWrapper.addEventListener('mousedown', (e) => {
+                checkbox.checked = !checkbox.checked;
+                const fakeEvent = {
+                    target: checkbox,
+                };
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                onChange(fakeEvent);
+                e.preventDefault();
+            });
+
             listItem.dataset.checked = node.attrs.checked;
             if (node.attrs.checked) {
                 checkbox.setAttribute('checked', 'checked');
