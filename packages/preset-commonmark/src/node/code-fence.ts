@@ -220,7 +220,7 @@ export const codeFence = createNode<Keys, { languageList?: string[] }>((options,
         ],
         shortcuts: {
             [SupportedKeys.CodeFence]: createShortcut(TurnIntoCodeFence, 'Mod-Alt-c'),
-            [SupportedKeys.ExitCodeFence]: createShortcut(ExitCodeFence, 'Mod-ArrowDown'),
+            [SupportedKeys.ExitCodeFence]: createShortcut(ExitCodeFence, 'Mod-Shift-ArrowDown'),
         },
         view: (editor, nodeType, node, view, getPos, decorations) => {
             if (options?.view) {
