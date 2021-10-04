@@ -441,7 +441,7 @@ importers:
       '@emotion/css': ^11.1.3
       '@sosuisen/milkdown-plugin-i18n': 'workspace: *'
       '@sosuisen/milkdown-utils': 'workspace: *'
-      '@sosuisen/prosemirror-schema-list': ^1.1.7
+      '@sosuisen/prosemirror-schema-list': 1.1.8
       concurrently: ^6.0.2
       remark-inline-links: ^5.0.0
       tslib: ^2.2.0
@@ -449,7 +449,7 @@ importers:
       '@emotion/css': 11.1.3
       '@sosuisen/milkdown-plugin-i18n': link:../plugin-i18n
       '@sosuisen/milkdown-utils': link:../utils
-      '@sosuisen/prosemirror-schema-list': 1.1.7
+      '@sosuisen/prosemirror-schema-list': 1.1.8
       remark-inline-links: 5.0.0
       tslib: 2.3.1
     devDependencies:
@@ -461,7 +461,7 @@ importers:
       '@sosuisen/milkdown-plugin-table': workspace:*
       '@sosuisen/milkdown-preset-commonmark': workspace:*
       '@sosuisen/milkdown-utils': workspace:*
-      '@sosuisen/prosemirror-schema-list': ^1.1.7
+      '@sosuisen/prosemirror-schema-list': 1.1.8
       concurrently: ^6.0.2
       tslib: ^2.2.0
     dependencies:
@@ -469,7 +469,7 @@ importers:
       '@sosuisen/milkdown-plugin-table': link:../plugin-table
       '@sosuisen/milkdown-preset-commonmark': link:../preset-commonmark
       '@sosuisen/milkdown-utils': link:../utils
-      '@sosuisen/prosemirror-schema-list': 1.1.7
+      '@sosuisen/prosemirror-schema-list': 1.1.8
       tslib: 2.3.1
     devDependencies:
       concurrently: 6.2.1
@@ -3102,8 +3102,8 @@ packages:
       '@sinonjs/commons': 1.8.3
     dev: true
 
-  /@sosuisen/prosemirror-schema-list/1.1.7:
-    resolution: {integrity: sha512-gyEGiSGse5H7yMDQciH34gkOdIX96UVRmLLNVDC/L7jklHwlNz7jYfPTKDX2lkDBa1iyTKxf1N0skyZWIFcAhw==}
+  /@sosuisen/prosemirror-schema-list/1.1.8:
+    resolution: {integrity: sha512-5ROfFYwIlVahsQ+7DCEpj0wo3flqxmuVwv7ff5Hrz/Gv2wX9ssc0cjVUrGkSNQWMYsc1bYWIpW3OU+rE6RPyfA==}
     dependencies:
       prosemirror-model: 1.14.3
       prosemirror-schema-basic: 1.1.2

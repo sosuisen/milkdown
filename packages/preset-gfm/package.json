@@ -1,6 +1,6 @@
 {
     "name": "@sosuisen/milkdown-preset-gfm",
-    "version": "4.11.2-alpha.17",
+    "version": "4.11.2-alpha.18",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -30,7 +30,7 @@
         "@sosuisen/milkdown-plugin-table": "workspace:*",
         "@sosuisen/milkdown-preset-commonmark": "workspace:*",
         "@sosuisen/milkdown-utils": "workspace:*",
-        "@sosuisen/prosemirror-schema-list": "^1.1.7",
+        "@sosuisen/prosemirror-schema-list": "1.1.8",
         "tslib": "^2.2.0"
     },
     "devDependencies": {
