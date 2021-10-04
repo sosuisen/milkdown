@@ -167,6 +167,9 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                     case 'expanded':
                         fontAwesome = 'fas fa-caret-down';
                         break;
+                    case 'none':
+                        fontAwesome = '';
+                        break;
                     default:
                         break;
                 }
@@ -245,10 +248,8 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                     break;
                 }
             }
-            if (hasChild) {
-                collapseIconWrapper.style.visibility = 'visible';
-            } else {
-                collapseIconWrapper.style.visibility = 'hidden';
+            if (!hasChild) {
+                setCollapsedIcon('none');
             }
 
             /**
@@ -334,10 +335,9 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                             break;
                         }
                     }
-                    if (hasChild) {
-                        collapseIconWrapper.style.visibility = 'visible';
-                    } else {
-                        collapseIconWrapper.style.visibility = 'hidden';
+
+                    if (!hasChild) {
+                        setIcon('none');
                     }
 
                     listItem.dataset.checked = updatedNode.attrs.checked;
@@ -346,7 +346,7 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                     } else {
                         checkbox.removeAttribute('checked');
                     }
-                    setIcon(updatedNode.attrs.checked ? 'checked' : 'unchecked');
+                    setCollapsedIcon(updatedNode.attrs.checked ? 'checked' : 'unchecked');
 
                     return true;
                 },

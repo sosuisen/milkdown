@@ -106,15 +106,18 @@ export const listItem = createNode<Keys>((options, utils) => {
                 let fontAwesome = '';
                 switch (id) {
                     case 'collapsed':
-                        fontAwesome = 'fa-caret-right';
+                        fontAwesome = 'fas fa-caret-right';
                         break;
                     case 'expanded':
-                        fontAwesome = 'fa-caret-down';
+                        fontAwesome = 'fas fa-caret-down';
+                        break;
+                    case 'none':
+                        fontAwesome = '';
                         break;
                     default:
                         break;
                 }
-                span.className = 'icon fas ' + fontAwesome;
+                span.className = 'icon ' + fontAwesome;
                 return span;
             };
             const listItem = document.createElement('li');
@@ -190,10 +193,9 @@ export const listItem = createNode<Keys>((options, utils) => {
                     break;
                 }
             }
-            if (hasChild) {
-                collapseIconWrapper.style.visibility = 'visible';
-            } else {
-                collapseIconWrapper.style.visibility = 'hidden';
+
+            if (!hasChild) {
+                setIcon('none');
             }
 
             const attributes = {
@@ -225,10 +227,8 @@ export const listItem = createNode<Keys>((options, utils) => {
                             break;
                         }
                     }
-                    if (hasChild) {
-                        collapseIconWrapper.style.visibility = 'visible';
-                    } else {
-                        collapseIconWrapper.style.visibility = 'hidden';
+                    if (!hasChild) {
+                        setIcon('none');
                     }
 
                     return true;
