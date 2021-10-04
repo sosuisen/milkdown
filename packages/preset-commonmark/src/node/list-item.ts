@@ -20,24 +20,22 @@ export const SinkListItem = createCmdKey();
 export const LiftListItem = createCmdKey();
 export const PopListItem = createCmdKey();
 
-export const listItem = createNode<Keys>((_, utils) => {
+export const listItem = createNode<Keys>((options, utils) => {
     const style = utils.getStyle(
-        (themeTool) =>
-            css`
-                &,
-                & > * {
-                    margin: 0.5rem 0;
-                }
+        (themeTool) => css`
+            &,
+            & > * {
+                margin: 0.5rem 0;
+            }
 
-                &,
-                li {
-                    &::marker {
-                        color: ${themeTool.palette('primary')};
-                    }
+            &,
+            li {
+                &::marker {
+                    color: ${themeTool.palette('primary')};
                 }
-            `,
+            }
+        `,
     );
-
     return {
         id,
         schema: {
@@ -45,8 +43,30 @@ export const listItem = createNode<Keys>((_, utils) => {
             //            content: 'paragraph block*',
             content: 'block+',
             defining: true,
-            parseDOM: [{ tag: 'li' }],
-            toDOM: (node) => ['li', { class: utils.getClassName(node.attrs, 'list-item', style) }, 0],
+            attrs: {
+                collapsed: {
+                    default: false,
+                },
+            },
+            parseDOM: [
+                {
+                    tag: 'li',
+                    getAttrs: (dom) => {
+                        if (!(dom instanceof HTMLElement)) {
+                            throw new Error();
+                        }
+                        return { collapsed: dom.dataset.collapsed === 'true' };
+                    },
+                },
+            ],
+            toDOM: (node) => [
+                'li',
+                {
+                    'data-collapsed': node.attrs.collapsed ? 'true' : 'false',
+                    class: utils.getClassName(node.attrs, 'list-item', style),
+                },
+                0,
+            ],
         },
         parser: {
             match: ({ type, checked }) => type === 'listItem' && checked === null,
@@ -76,6 +96,147 @@ export const listItem = createNode<Keys>((_, utils) => {
             [SupportedKeys.SinkListItem]: createShortcut(SinkListItem, 'Mod-]'),
             [SupportedKeys.LiftListItem]: createShortcut(LiftListItem, 'Mod-Shift-['),
             [SupportedKeys.PopListItem]: createShortcut(PopListItem, 'Mod-['),
+        },
+        view: (editor, nodeType, node, view, getPos, decorations) => {
+            if (options?.view) {
+                return options.view(editor, nodeType, node, view, getPos, decorations);
+            }
+            const fontAwesomeIcon = (id: string) => {
+                const span = document.createElement('span');
+                let fontAwesome = '';
+                switch (id) {
+                    case 'collapsed':
+                        fontAwesome = 'fa-caret-right';
+                        break;
+                    case 'expanded':
+                        fontAwesome = 'fa-caret-down';
+                        break;
+                    default:
+                        break;
+                }
+                span.className = 'icon fas ' + fontAwesome;
+                return span;
+            };
+            const listItem = document.createElement('li');
+            const collapseIconWrapper = document.createElement('label');
+            const content = document.createElement('div');
+
+            collapseIconWrapper.contentEditable = 'false';
+
+            let icon = fontAwesomeIcon(node.attrs.collapsed ? 'collapsed' : 'expanded');
+            collapseIconWrapper.appendChild(icon);
+
+            const setIcon = (name: string) => {
+                const nextIcon = fontAwesomeIcon(name);
+                collapseIconWrapper.replaceChild(nextIcon, icon);
+                icon = nextIcon;
+            };
+
+            const onChange = (e: MouseEvent) => {
+                let isCollapsed = false;
+                let target: Element;
+                if ((e.target as HTMLLabelElement).children.length > 0) {
+                    target = (e.target as HTMLLabelElement).children[0];
+                } else {
+                    target = e.target as unknown as Element;
+                }
+                if (target?.className === fontAwesomeIcon('collapsed').className) {
+                    isCollapsed = true;
+                } else if (target?.className === fontAwesomeIcon('expanded').className) {
+                    isCollapsed = false;
+                } else {
+                    return;
+                }
+
+                const newCollapsed = !isCollapsed;
+
+                const newNode = view.state.doc.nodeAt(getPos());
+
+                let isChanged = false;
+                newNode?.forEach((child, offset) => {
+                    if (child.type.name === 'bullet_list' || child.type.name === 'ordered_list') {
+                        const newState = view.state.apply(
+                            view.state.tr.setNodeMarkup(getPos() + offset + 1, undefined, {
+                                collapsed: newCollapsed,
+                            }),
+                        );
+                        view.updateState(newState);
+                        isChanged = true;
+                    }
+                });
+
+                if (isChanged) {
+                    const newState = view.state.apply(
+                        view.state.tr.setNodeMarkup(getPos(), undefined, {
+                            collapsed: newCollapsed,
+                        }),
+                    );
+                    view.updateState(newState);
+                }
+
+                e.preventDefault();
+            };
+
+            collapseIconWrapper.addEventListener('mousedown', onChange);
+
+            listItem.dataset.collapsed = node.attrs.collapsed;
+
+            listItem.append(collapseIconWrapper, content);
+
+            let hasChild = false;
+            for (let i = 0; i < node.childCount; i++) {
+                if (node.child(i).type.name === 'bullet_list' || node.child(i).type.name === 'ordered_list') {
+                    hasChild = true;
+                    break;
+                }
+            }
+            if (hasChild) {
+                collapseIconWrapper.style.visibility = 'visible';
+            } else {
+                collapseIconWrapper.style.visibility = 'hidden';
+            }
+
+            const attributes = {
+                'data-collapsed': node.attrs.collapsed ? 'true' : 'false',
+                class: utils.getClassName(node.attrs, 'list-item', style),
+            };
+            Object.entries(attributes).forEach(([key, value]) => {
+                listItem.setAttribute(key, value);
+            });
+
+            return {
+                dom: listItem,
+                contentDOM: content,
+                update: (updatedNode) => {
+                    if (updatedNode.type.name !== id) return false;
+
+                    if (listItem.dataset.collapsed !== updatedNode.attrs.collapsed) {
+                        listItem.dataset.collapsed = updatedNode.attrs.collapsed;
+                        setIcon(updatedNode.attrs.collapsed ? 'collapsed' : 'expanded');
+                    }
+
+                    let hasChild = false;
+                    for (let i = 0; i < updatedNode.childCount; i++) {
+                        if (
+                            updatedNode.child(i).type.name === 'bullet_list' ||
+                            updatedNode.child(i).type.name === 'ordered_list'
+                        ) {
+                            hasChild = true;
+                            break;
+                        }
+                    }
+                    if (hasChild) {
+                        collapseIconWrapper.style.visibility = 'visible';
+                    } else {
+                        collapseIconWrapper.style.visibility = 'hidden';
+                    }
+
+                    return true;
+                },
+                destroy: () => {
+                    collapseIconWrapper.removeEventListener('mousedown', onChange);
+                },
+            };
         },
     };
 });

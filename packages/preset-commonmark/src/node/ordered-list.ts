@@ -20,6 +20,9 @@ export const orderedList = createNode<Keys>((_, utils) => ({
             order: {
                 default: 1,
             },
+            collapsed: {
+                default: false,
+            },
         },
         parseDOM: [
             {
@@ -28,29 +31,35 @@ export const orderedList = createNode<Keys>((_, utils) => ({
                     if (!(dom instanceof HTMLElement)) {
                         throw new Error();
                     }
-                    return { order: dom.hasAttribute('start') ? Number(dom.getAttribute('start')) : 1 };
+                    return {
+                        order: dom.hasAttribute('start') ? Number(dom.getAttribute('start')) : 1,
+                        collapsed: dom.dataset.collapsed === 'true',
+                    };
                 },
             },
         ],
         toDOM: (node) => [
             'ol',
-            {
-                ...(node.attrs.order === 1 ? {} : node.attrs.order),
+            Object.assign(Object.assign({}, node.attrs.order === 1 ? {} : node.attrs.order), {
+                'data-collapsed': node.attrs.collapsed ? 'true' : 'false',
                 class: utils.getClassName(node.attrs, 'ordered-list'),
-            },
+            }),
             0,
         ],
     },
     parser: {
         match: ({ type, ordered }) => type === 'list' && !!ordered,
         runner: (state, node, type) => {
-            state.openNode(type).next(node.children).closeNode();
+            state
+                .openNode(type, { collapsed: node.collapsed as boolean })
+                .next(node.children)
+                .closeNode();
         },
     },
     serializer: {
         match: (node) => node.type.name === id,
         runner: (state, node) => {
-            state.openNode('list', undefined, { ordered: true, start: 1 });
+            state.openNode('list', undefined, { ordered: true, collapsed: node.attrs.collapsed, start: 1 });
             state.next(node.content);
             state.closeNode();
         },

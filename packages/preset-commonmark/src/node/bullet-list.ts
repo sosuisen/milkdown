@@ -17,21 +17,49 @@ export const bulletList = createNode<Keys>((_, utils) => {
         schema: {
             content: 'listItem+',
             group: 'block',
-            parseDOM: [{ tag: 'ul' }],
+            attrs: {
+                collapsed: {
+                    default: false,
+                },
+            },
+            parseDOM: [
+                {
+                    tag: 'ul',
+                    getAttrs: (dom) => {
+                        if (!(dom instanceof HTMLElement)) {
+                            throw new Error();
+                        }
+                        return { collapsed: dom.dataset.collapsed === 'true' };
+                    },
+                },
+            ],
             toDOM: (node) => {
-                return ['ul', { class: utils.getClassName(node.attrs, 'bullet-list') }, 0];
+                return [
+                    'ul',
+                    {
+                        'data-collapsed': node.attrs.collapsed ? 'true' : 'false',
+                        class: utils.getClassName(node.attrs, 'bullet-list'),
+                    },
+                    0,
+                ];
             },
         },
         parser: {
             match: ({ type, ordered }) => type === 'list' && !ordered,
             runner: (state, node, type) => {
-                state.openNode(type).next(node.children).closeNode();
+                state
+                    .openNode(type, { collapsed: node.collapsed as boolean })
+                    .next(node.children)
+                    .closeNode();
             },
         },
         serializer: {
             match: (node) => node.type.name === id,
             runner: (state, node) => {
-                state.openNode('list', undefined, { ordered: false }).next(node.content).closeNode();
+                state
+                    .openNode('list', undefined, { ordered: false, collapsed: node.attrs.collapsed })
+                    .next(node.content)
+                    .closeNode();
             },
         },
         inputRules: (nodeType) => [wrappingInputRule(/^\s*([-+*])\s$/, nodeType)],

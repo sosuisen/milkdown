@@ -1,7 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { css } from '@emotion/css';
 import { createCmd, createCmdKey } from '@sosuisen/milkdown-core';
-import type { Icon } from '@sosuisen/milkdown-design-system';
 import { createNode, createShortcut } from '@sosuisen/milkdown-utils';
 import { wrapIn } from 'prosemirror-commands';
 import { wrappingInputRule } from 'prosemirror-inputrules';
@@ -80,17 +79,23 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                 checked: {
                     default: false,
                 },
+                collapsed: {
+                    default: false,
+                },
             },
             parseDOM: [
                 {
                     // tag: 'li[data-type="task-list-item"]',
-                    tag: 'li[data-type="task-item"]', // should be same value as data-type in toDOM()
-                    priority: 60, // Higher priority than normal list-item is required.
+                    tag: 'li[data-type="task-item"]',
+                    priority: 60,
                     getAttrs: (dom) => {
                         if (!(dom instanceof HTMLElement)) {
                             throw new Error();
                         }
-                        return { checked: dom.dataset.checked === 'true' };
+                        return {
+                            checked: dom.dataset.checked === 'true',
+                            collapsed: dom.dataset.collapsed === 'true',
+                        };
                     },
                 },
             ],
@@ -99,6 +104,7 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                 {
                     'data-type': 'task-item',
                     'data-checked': node.attrs.checked ? 'true' : 'false',
+                    'data-collapsed': node.attrs.collapsed ? 'true' : 'false',
                     class: utils.getClassName(node.attrs, 'task-list-item', style),
                 },
                 0,
@@ -145,52 +151,132 @@ export const taskListItem = createNode<Keys>((options, utils) => {
             if (options?.view) {
                 return options.view(editor, nodeType, node, view, getPos, decorations);
             }
-            // const createIcon = utils.ctx.get(themeToolCtx).slots.icon;
             const fontAwesomeIcon = (id: string) => {
                 const span = document.createElement('span');
                 let fontAwesome = '';
                 switch (id) {
                     case 'checked':
-                        fontAwesome = 'fa-check-square';
+                        fontAwesome = 'far fa-check-square';
                         break;
                     case 'unchecked':
-                        fontAwesome = 'fa-square';
+                        fontAwesome = 'far fa-square';
+                        break;
+                    case 'collapsed':
+                        fontAwesome = 'fas fa-caret-right';
+                        break;
+                    case 'expanded':
+                        fontAwesome = 'fas fa-caret-down';
                         break;
                     default:
                         break;
                 }
-                span.className = 'icon far ' + fontAwesome;
+                span.className = 'icon ' + fontAwesome;
                 return span;
             };
-
             const listItem = document.createElement('li');
+
+            /**
+             * Collapsed
+             */
+            const collapseIconWrapper = document.createElement('label');
+            collapseIconWrapper.setAttribute('class', 'collapse');
+            collapseIconWrapper.contentEditable = 'false';
+            let collapsedIcon = fontAwesomeIcon(node.attrs.collapsed ? 'collapsed' : 'expanded');
+            collapseIconWrapper.appendChild(collapsedIcon);
+
+            const setCollapsedIcon = (name: string) => {
+                const nextIcon = fontAwesomeIcon(name);
+                collapseIconWrapper.replaceChild(nextIcon, collapsedIcon);
+                collapsedIcon = nextIcon;
+            };
+
+            const onCollapsedChange = (e: MouseEvent) => {
+                let isCollapsed = false;
+                let target: Element;
+                if ((e.target as HTMLLabelElement).children.length > 0) {
+                    target = (e.target as HTMLLabelElement).children[0];
+                } else {
+                    target = e.target as unknown as Element;
+                }
+                if (target.className === fontAwesomeIcon('collapsed').className) {
+                    isCollapsed = true;
+                } else if (target.className === fontAwesomeIcon('expanded').className) {
+                    isCollapsed = false;
+                } else {
+                    return;
+                }
+
+                const newCollapsed = !isCollapsed;
+
+                const newNode = view.state.doc.nodeAt(getPos());
+
+                let isChanged = false;
+                newNode?.forEach((child, offset) => {
+                    if (child.type.name === 'bullet_list' || child.type.name === 'ordered_list') {
+                        const newState = view.state.apply(
+                            view.state.tr.setNodeMarkup(getPos() + offset + 1, undefined, {
+                                collapsed: newCollapsed,
+                            }),
+                        );
+                        view.updateState(newState);
+                        isChanged = true;
+                    }
+                });
+
+                if (isChanged) {
+                    const newState = view.state.apply(
+                        view.state.tr.setNodeMarkup(getPos(), undefined, {
+                            collapsed: newCollapsed,
+                        }),
+                    );
+                    view.updateState(newState);
+                }
+
+                e.preventDefault();
+            };
+            collapseIconWrapper.addEventListener('mousedown', onCollapsedChange);
+
+            listItem.dataset.collapsed = node.attrs.collapsed;
+
+            let hasChild = false;
+            for (let i = 0; i < node.childCount; i++) {
+                if (node.child(i).type.name === 'bullet_list' || node.child(i).type.name === 'ordered_list') {
+                    hasChild = true;
+                    break;
+                }
+            }
+            if (hasChild) {
+                collapseIconWrapper.style.visibility = 'visible';
+            } else {
+                collapseIconWrapper.style.visibility = 'hidden';
+            }
+
+            /**
+             * checked
+             */
             const checkboxWrapper = document.createElement('label');
+            checkboxWrapper.setAttribute('class', 'check');
             const checkboxStyler = document.createElement('span');
             const checkbox = document.createElement('input');
             const content = document.createElement('div');
-
             let icon = fontAwesomeIcon('unchecked');
             checkboxWrapper.appendChild(icon);
-            const setIcon = (name: Icon) => {
+
+            const setIcon = (name: string) => {
                 const nextIcon = fontAwesomeIcon(name);
                 checkboxWrapper.replaceChild(nextIcon, icon);
                 icon = nextIcon;
             };
-
             checkboxWrapper.contentEditable = 'false';
             checkbox.type = 'checkbox';
             const onChange = (event: Event) => {
                 const target = event.target;
                 if (!(target instanceof HTMLInputElement)) return;
-
                 if (!view.editable) {
                     checkbox.checked = !checkbox.checked;
-
                     return;
                 }
-
                 const { tr } = view.state;
-
                 view.dispatch(
                     tr.setNodeMarkup(getPos(), undefined, {
                         checked: target.checked,
@@ -198,7 +284,6 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                 );
             };
             checkbox.addEventListener('change', onChange);
-
             checkboxWrapper.addEventListener('mousedown', (e) => {
                 checkbox.checked = !checkbox.checked;
                 const fakeEvent = {
@@ -209,18 +294,18 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                 onChange(fakeEvent);
                 e.preventDefault();
             });
-
             listItem.dataset.checked = node.attrs.checked;
             if (node.attrs.checked) {
                 checkbox.setAttribute('checked', 'checked');
             }
-
             checkboxWrapper.append(checkbox, checkboxStyler);
-            listItem.append(checkboxWrapper, content);
+
+            listItem.append(collapseIconWrapper, checkboxWrapper, content);
 
             const attributes = {
                 'data-type': 'task-item',
                 'data-checked': node.attrs.checked ? 'true' : 'false',
+                'data-collapsed': node.attrs.collapsed ? 'true' : 'false',
                 class: utils.getClassName(node.attrs, 'task-list-item', style),
             };
             Object.entries(attributes).forEach(([key, value]) => {
@@ -234,6 +319,27 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                 update: (updatedNode) => {
                     if (updatedNode.type.name !== id) return false;
 
+                    if (listItem.dataset.collapsed !== updatedNode.attrs.collapsed) {
+                        listItem.dataset.collapsed = updatedNode.attrs.collapsed;
+                        setCollapsedIcon(updatedNode.attrs.collapsed ? 'collapsed' : 'expanded');
+                    }
+
+                    let hasChild = false;
+                    for (let i = 0; i < updatedNode.childCount; i++) {
+                        if (
+                            updatedNode.child(i).type.name === 'bullet_list' ||
+                            updatedNode.child(i).type.name === 'ordered_list'
+                        ) {
+                            hasChild = true;
+                            break;
+                        }
+                    }
+                    if (hasChild) {
+                        collapseIconWrapper.style.visibility = 'visible';
+                    } else {
+                        collapseIconWrapper.style.visibility = 'hidden';
+                    }
+
                     listItem.dataset.checked = updatedNode.attrs.checked;
                     if (updatedNode.attrs.checked) {
                         checkbox.setAttribute('checked', 'checked');
@@ -246,6 +352,7 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                 },
                 destroy: () => {
                     checkbox.removeEventListener('change', onChange);
+                    collapseIconWrapper.removeEventListener('mousedown', onCollapsedChange);
                 },
             };
         },
