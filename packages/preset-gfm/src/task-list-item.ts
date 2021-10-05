@@ -2,9 +2,9 @@
 import { css } from '@emotion/css';
 import { createCmd, createCmdKey } from '@sosuisen/milkdown-core';
 import { createNode, createShortcut } from '@sosuisen/milkdown-utils';
+import { liftListItem, popListItem, sinkListItem, splitListItem } from '@sosuisen/prosemirror-schema-list';
 import { wrapIn } from 'prosemirror-commands';
 import { wrappingInputRule } from 'prosemirror-inputrules';
-import { liftListItem, popListItem, sinkListItem, splitListItem } from 'prosemirror-schema-list';
 
 import { SupportedKeys } from './supported-keys';
 
