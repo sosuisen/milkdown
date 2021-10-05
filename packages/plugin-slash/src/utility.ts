@@ -2,7 +2,7 @@
 import type { ThemeTool } from '@sosuisen/milkdown-core';
 import type { Icon } from '@sosuisen/milkdown-design-system';
 import type { Utils } from '@sosuisen/milkdown-utils';
-import type { Command } from 'prosemirror-commands';
+import type { Command } from '@sosuisen/prosemirror-commands';
 import type { Node, Schema } from 'prosemirror-model';
 
 import { injectStyle } from './style';

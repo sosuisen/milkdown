@@ -1,6 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import { docTypeError } from '@sosuisen/milkdown-exception';
-import { baseKeymap } from 'prosemirror-commands';
+import { baseKeymap } from '@sosuisen/prosemirror-commands';
 import { inputRules as createInputRules } from 'prosemirror-inputrules';
 import { keymap as createKeymap } from 'prosemirror-keymap';
 import { DOMParser, Node, Schema } from 'prosemirror-model';

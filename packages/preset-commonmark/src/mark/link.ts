@@ -2,7 +2,7 @@
 import { css } from '@emotion/css';
 import { createCmd, createCmdKey } from '@sosuisen/milkdown-core';
 import { createMark } from '@sosuisen/milkdown-utils';
-import { toggleMark } from 'prosemirror-commands';
+import { toggleMark } from '@sosuisen/prosemirror-commands';
 import { InputRule } from 'prosemirror-inputrules';
 import { Node as ProseNode } from 'prosemirror-model';
 import { TextSelection } from 'prosemirror-state';

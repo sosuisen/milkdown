@@ -3,7 +3,7 @@ import { css } from '@emotion/css';
 import { createCmd, createCmdKey } from '@sosuisen/milkdown-core';
 import { i18nCtx } from '@sosuisen/milkdown-plugin-i18n';
 import { createNode, createShortcut } from '@sosuisen/milkdown-utils';
-import { exitCode, setBlockType } from 'prosemirror-commands';
+import { exitCode, setBlockType } from '@sosuisen/prosemirror-commands';
 import { textblockTypeInputRule } from 'prosemirror-inputrules';
 
 import { SupportedKeys } from '../supported-keys';

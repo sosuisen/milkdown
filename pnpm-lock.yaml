@@ -28,8 +28,8 @@ importers:
       '@sosuisen/milkdown-react': workspace:*
       '@sosuisen/milkdown-theme-nord': workspace:*
       '@sosuisen/milkdown-utils': workspace:*
+      '@sosuisen/prosemirror-commands': ^1.0.0
       '@types/jest': ^26.0.22
-      '@types/prosemirror-commands': ^1.0.4
       '@types/prosemirror-dropcursor': ^1.0.2
       '@types/prosemirror-gapcursor': ^1.0.3
       '@types/prosemirror-history': ^1.0.2
@@ -58,7 +58,6 @@ importers:
       jest: ^26.6.3
       lint-staged: ^11.1.2
       prettier: ^2.3.1
-      prosemirror-commands: ^1.1.7
       prosemirror-dropcursor: ^1.3.5
       prosemirror-gapcursor: ^1.1.5
       prosemirror-history: ^1.1.3
@@ -97,8 +96,8 @@ importers:
       '@sosuisen/milkdown-react': link:packages/react
       '@sosuisen/milkdown-theme-nord': link:packages/theme-nord
       '@sosuisen/milkdown-utils': link:packages/utils
+      '@sosuisen/prosemirror-commands': 1.1.11
       '@types/jest': 26.0.24
-      '@types/prosemirror-commands': 1.0.4
       '@types/prosemirror-dropcursor': 1.0.3
       '@types/prosemirror-gapcursor': 1.0.4
       '@types/prosemirror-history': 1.0.3
@@ -127,7 +126,6 @@ importers:
       jest: 26.6.3
       lint-staged: 11.1.2
       prettier: 2.4.1
-      prosemirror-commands: 1.1.10
       prosemirror-dropcursor: 1.3.5
       prosemirror-gapcursor: 1.1.5
       prosemirror-history: 1.2.0
@@ -218,13 +216,12 @@ importers:
     specifiers:
       '@sosuisen/milkdown-design-system': 'workspace: *'
       '@sosuisen/milkdown-exception': 'workspace: *'
-      '@types/prosemirror-commands': ^1.0.4
+      '@sosuisen/prosemirror-commands': ^1.1.11
       '@types/prosemirror-inputrules': ^1.0.4
       '@types/prosemirror-keymap': ^1.0.4
       '@types/prosemirror-model': ^1.12.0
       '@types/prosemirror-state': ^1.2.6
       '@types/prosemirror-view': ^1.17.1
-      prosemirror-commands: ^1.1.7
       prosemirror-inputrules: ^1.1.3
       prosemirror-keymap: ^1.1.4
       prosemirror-model: ^1.13.3
@@ -236,13 +233,12 @@ importers:
     dependencies:
       '@sosuisen/milkdown-design-system': link:../design-system
       '@sosuisen/milkdown-exception': link:../exception
-      '@types/prosemirror-commands': 1.0.4
+      '@sosuisen/prosemirror-commands': 1.1.11
       '@types/prosemirror-inputrules': 1.0.4
       '@types/prosemirror-keymap': 1.0.4
       '@types/prosemirror-model': 1.13.2
       '@types/prosemirror-state': 1.2.7
       '@types/prosemirror-view': 1.19.1
-      prosemirror-commands: 1.1.10
       prosemirror-inputrules: 1.1.3
       prosemirror-keymap: 1.1.4
       prosemirror-model: 1.14.3
@@ -370,7 +366,7 @@ importers:
       remark-math: ^4.0.0
       tslib: ^2.2.0
     dependencies:
-      '@benrbray/prosemirror-math': 0.2.2_8014dbcf692bbfcef9b32cdd236e5d44
+      '@benrbray/prosemirror-math': 0.2.2_21c7c1d4c89bcd133ea1ef6638a88147
       '@emotion/css': 11.1.3
       '@sosuisen/milkdown-utils': link:../utils
       remark-math: 4.0.0
@@ -1919,7 +1915,7 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@benrbray/prosemirror-math/0.2.2_8014dbcf692bbfcef9b32cdd236e5d44:
+  /@benrbray/prosemirror-math/0.2.2_21c7c1d4c89bcd133ea1ef6638a88147:
     resolution: {integrity: sha512-n+V8MNKaQ9HtA1IASzoBFwthFY55kpu2I+0aF103AbqUw5eM8YlxHeltnLqjnYRVY4/a6A9t9YlBMBQOli5jgw==}
     peerDependencies:
       katex: ^0.13.0
@@ -1933,7 +1929,6 @@ packages:
       prosemirror-transform: ^1.2.12
       prosemirror-view: ^1.18.2
     dependencies:
-      prosemirror-commands: 1.1.10
       prosemirror-gapcursor: 1.1.5
       prosemirror-history: 1.2.0
       prosemirror-inputrules: 1.1.3
@@ -3101,6 +3096,14 @@ packages:
     dependencies:
       '@sinonjs/commons': 1.8.3
     dev: true
+
+  /@sosuisen/prosemirror-commands/1.1.11:
+    resolution: {integrity: sha512-X1mM6nBAy/QENqtWv+/PJAQT4gEhmLuBddAXgeYQ62KWMD0qWNRIhu/ecuB2/m+M4xf4rqa/V5bmit4hnRT3Gg==}
+    dependencies:
+      prosemirror-model: 1.14.3
+      prosemirror-state: 1.3.4
+      prosemirror-transform: 1.3.2
+      prosemirror-view: 1.20.1
 
   /@sosuisen/prosemirror-schema-list/1.1.8:
     resolution: {integrity: sha512-5ROfFYwIlVahsQ+7DCEpj0wo3flqxmuVwv7ff5Hrz/Gv2wX9ssc0cjVUrGkSNQWMYsc1bYWIpW3OU+rE6RPyfA==}
@@ -8347,13 +8350,6 @@ packages:
     dependencies:
       xtend: 4.0.2
     dev: false
-
-  /prosemirror-commands/1.1.10:
-    resolution: {integrity: sha512-IWyBBXNAd44RM6NnBPljwq+/CM2oYCQJkF+YhKEAZNwzW0uFdGf4qComhjbKZzqFdu6Iub2ZhNsXgwPibA0lCQ==}
-    dependencies:
-      prosemirror-model: 1.14.3
-      prosemirror-state: 1.3.4
-      prosemirror-transform: 1.3.2
 
   /prosemirror-dropcursor/1.3.5:
     resolution: {integrity: sha512-tNUwcF2lPAkwKBZPZRtbxpwljnODRNZ3eiYloN1DSUqDjMT1nBZm0nejaEMS1TvNQ+3amibUSAiV4hX+jpASFA==}
