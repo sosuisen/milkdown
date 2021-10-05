@@ -337,7 +337,7 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                     }
 
                     if (!hasChild) {
-                        setIcon('none');
+                        setCollapsedIcon('none');
                     }
 
                     listItem.dataset.checked = updatedNode.attrs.checked;
@@ -346,7 +346,7 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                     } else {
                         checkbox.removeAttribute('checked');
                     }
-                    setCollapsedIcon(updatedNode.attrs.checked ? 'checked' : 'unchecked');
+                    setIcon(updatedNode.attrs.checked ? 'checked' : 'unchecked');
 
                     return true;
                 },
