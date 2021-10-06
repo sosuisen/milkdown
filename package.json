@@ -51,7 +51,7 @@
         "@sosuisen/milkdown-react": "workspace:*",
         "@sosuisen/milkdown-theme-nord": "workspace:*",
         "@sosuisen/milkdown-utils": "workspace:*",
-        "@sosuisen/prosemirror-commands": "^1.0.0",
+        "@sosuisen/prosemirror-commands": "^1.1.12-alpha.0",
         "@types/jest": "^26.0.22",
         "@types/prosemirror-dropcursor": "^1.0.2",
         "@types/prosemirror-gapcursor": "^1.0.3",

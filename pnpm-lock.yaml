@@ -28,7 +28,7 @@ importers:
       '@sosuisen/milkdown-react': workspace:*
       '@sosuisen/milkdown-theme-nord': workspace:*
       '@sosuisen/milkdown-utils': workspace:*
-      '@sosuisen/prosemirror-commands': ^1.0.0
+      '@sosuisen/prosemirror-commands': ^1.1.12-alpha.0
       '@types/jest': ^26.0.22
       '@types/prosemirror-dropcursor': ^1.0.2
       '@types/prosemirror-gapcursor': ^1.0.3
@@ -96,7 +96,7 @@ importers:
       '@sosuisen/milkdown-react': link:packages/react
       '@sosuisen/milkdown-theme-nord': link:packages/theme-nord
       '@sosuisen/milkdown-utils': link:packages/utils
-      '@sosuisen/prosemirror-commands': 1.1.11
+      '@sosuisen/prosemirror-commands': 1.1.12-alpha.0
       '@types/jest': 26.0.24
       '@types/prosemirror-dropcursor': 1.0.3
       '@types/prosemirror-gapcursor': 1.0.4
@@ -216,7 +216,7 @@ importers:
     specifiers:
       '@sosuisen/milkdown-design-system': 'workspace: *'
       '@sosuisen/milkdown-exception': 'workspace: *'
-      '@sosuisen/prosemirror-commands': ^1.1.11
+      '@sosuisen/prosemirror-commands': ^1.1.12-alpha.0
       '@types/prosemirror-inputrules': ^1.0.4
       '@types/prosemirror-keymap': ^1.0.4
       '@types/prosemirror-model': ^1.12.0
@@ -233,7 +233,7 @@ importers:
     dependencies:
       '@sosuisen/milkdown-design-system': link:../design-system
       '@sosuisen/milkdown-exception': link:../exception
-      '@sosuisen/prosemirror-commands': 1.1.11
+      '@sosuisen/prosemirror-commands': 1.1.12-alpha.0
       '@types/prosemirror-inputrules': 1.0.4
       '@types/prosemirror-keymap': 1.0.4
       '@types/prosemirror-model': 1.13.2
@@ -3097,8 +3097,8 @@ packages:
       '@sinonjs/commons': 1.8.3
     dev: true
 
-  /@sosuisen/prosemirror-commands/1.1.11:
-    resolution: {integrity: sha512-X1mM6nBAy/QENqtWv+/PJAQT4gEhmLuBddAXgeYQ62KWMD0qWNRIhu/ecuB2/m+M4xf4rqa/V5bmit4hnRT3Gg==}
+  /@sosuisen/prosemirror-commands/1.1.12-alpha.0:
+    resolution: {integrity: sha512-B2sQBb1pqHnGjnq5eunl8zHweuYTVPt9nd8oVjQEjZGaHhF0dxDkFuPBFiXY4VUAsogQUS1Ngj6a+P58+47BIA==}
     dependencies:
       prosemirror-model: 1.14.3
       prosemirror-state: 1.3.4
