@@ -1,6 +1,6 @@
 {
     "name": "@sosuisen/milkdown-core",
-    "version": "4.11.2-alpha.2",
+    "version": "4.11.2-alpha.3",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -27,7 +27,7 @@
     "dependencies": {
         "@sosuisen/milkdown-design-system": "workspace: *",
         "@sosuisen/milkdown-exception": "workspace: *",
-        "@sosuisen/prosemirror-commands": "^1.1.12-alpha.1",
+        "@sosuisen/prosemirror-commands": "^1.1.12-alpha.2",
         "@types/prosemirror-inputrules": "^1.0.4",
         "@types/prosemirror-keymap": "^1.0.4",
         "@types/prosemirror-model": "^1.12.0",
