@@ -3,7 +3,14 @@ import { css } from '@emotion/css';
 import { createCmd, createCmdKey } from '@sosuisen/milkdown-core';
 import { createNode, createShortcut } from '@sosuisen/milkdown-utils';
 import { wrapIn } from '@sosuisen/prosemirror-commands';
-import { liftListItem, popListItem, sinkListItem, splitListItem } from '@sosuisen/prosemirror-schema-list';
+import {
+    liftListItem,
+    popListItem,
+    sinkListItem,
+    slideDownListItem,
+    slideUpListItem,
+    splitListItem,
+} from '@sosuisen/prosemirror-schema-list';
 import { wrappingInputRule } from 'prosemirror-inputrules';
 
 import { SupportedKeys } from './supported-keys';
@@ -149,6 +156,8 @@ export const taskListItem = createNode<Keys>((options, utils) => {
             createCmd(SinkTaskListItem, () => sinkListItem(nodeType)),
             createCmd(LiftTaskListItem, () => liftListItem(nodeType)),
             createCmd(PopTaskListItem, () => popListItem(nodeType)),
+            createCmd(SlideUpTaskListItem, () => slideUpListItem(nodeType)),
+            createCmd(SlideDownTaskListItem, () => slideDownListItem(nodeType)),
             createCmd(TurnIntoTaskList, () => wrapIn(nodeType)),
         ],
         shortcuts: {
