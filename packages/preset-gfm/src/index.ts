@@ -62,6 +62,8 @@ export {
     paragraph,
     PopListItem,
     SinkListItem,
+    SlideDownListItem,
+    SlideUpListItem,
     SplitListItem,
     strong,
     text,

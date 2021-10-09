@@ -20,6 +20,8 @@ export const SupportedKeys = {
     SinkListItem: 'SinkListItem',
     LiftListItem: 'LiftListItem',
     PopListItem: 'PopListItem',
+    SlideUpListItem: 'SlideUpListItem',
+    SlideDownListItem: 'SlideDownListItem',
 } as const;
 
 export type SupportedKeys = typeof SupportedKeys;

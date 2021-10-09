@@ -11,6 +11,8 @@ import {
     nodes,
     PopListItem,
     SinkListItem,
+    SlideDownListItem,
+    SlideUpListItem,
     SplitListItem,
     TurnIntoCodeFence,
     TurnIntoHeading,
@@ -54,5 +56,7 @@ export const commands = {
     SinkListItem,
     LiftListItem,
     PopListItem,
+    SlideUpListItem,
+    SlideDownListItem,
 } as const;
 export type Commands = typeof commands;

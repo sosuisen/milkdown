@@ -30,7 +30,7 @@
         "@sosuisen/milkdown-plugin-table": "workspace:*",
         "@sosuisen/milkdown-preset-commonmark": "workspace:*",
         "@sosuisen/milkdown-utils": "workspace:*",
-        "@sosuisen/prosemirror-schema-list": "1.1.8",
+        "@sosuisen/prosemirror-schema-list": "1.1.10",
         "tslib": "^2.2.0"
     },
     "devDependencies": {

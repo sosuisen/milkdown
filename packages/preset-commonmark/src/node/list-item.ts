@@ -2,7 +2,14 @@
 import { css } from '@emotion/css';
 import { createCmd, createCmdKey } from '@sosuisen/milkdown-core';
 import { createNode, createShortcut } from '@sosuisen/milkdown-utils';
-import { liftListItem, popListItem, sinkListItem, splitListItem } from '@sosuisen/prosemirror-schema-list';
+import {
+    liftListItem,
+    popListItem,
+    sinkListItem,
+    slideDownListItem,
+    slideUpListItem,
+    splitListItem,
+} from '@sosuisen/prosemirror-schema-list';
 import { wrappingInputRule } from 'prosemirror-inputrules';
 
 import { SupportedKeys } from '../supported-keys';
@@ -11,6 +18,8 @@ type Keys =
     | SupportedKeys['SinkListItem']
     | SupportedKeys['LiftListItem']
     | SupportedKeys['PopListItem']
+    | SupportedKeys['SlideUpListItem']
+    | SupportedKeys['SlideDownListItem']
     | SupportedKeys['NextListItem'];
 
 const id = 'list_item';
@@ -19,6 +28,8 @@ export const SplitListItem = createCmdKey();
 export const SinkListItem = createCmdKey();
 export const LiftListItem = createCmdKey();
 export const PopListItem = createCmdKey();
+export const SlideUpListItem = createCmdKey();
+export const SlideDownListItem = createCmdKey();
 
 export const listItem = createNode<Keys>((options, utils) => {
     const style = utils.getStyle(
@@ -90,12 +101,16 @@ export const listItem = createNode<Keys>((options, utils) => {
             createCmd(SinkListItem, () => sinkListItem(nodeType)),
             createCmd(LiftListItem, () => liftListItem(nodeType)),
             createCmd(PopListItem, () => popListItem(nodeType)),
+            createCmd(SlideUpListItem, () => slideUpListItem(nodeType)),
+            createCmd(SlideDownListItem, () => slideDownListItem(nodeType)),
         ],
         shortcuts: {
             [SupportedKeys.NextListItem]: createShortcut(SplitListItem, 'Enter'),
             [SupportedKeys.SinkListItem]: createShortcut(SinkListItem, 'Mod-]'),
             [SupportedKeys.LiftListItem]: createShortcut(LiftListItem, 'Mod-Shift-['),
             [SupportedKeys.PopListItem]: createShortcut(PopListItem, 'Mod-['),
+            [SupportedKeys.SlideUpListItem]: createShortcut(SlideUpListItem, 'Alt-Shift-ArrowUp'),
+            [SupportedKeys.SlideDownListItem]: createShortcut(SlideDownListItem, 'Alt-Shift-ArrowDown'),
         },
         view: (editor, nodeType, node, view, getPos, decorations) => {
             if (options?.view) {

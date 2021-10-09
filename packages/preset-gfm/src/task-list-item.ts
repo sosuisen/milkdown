@@ -8,12 +8,23 @@ import { wrappingInputRule } from 'prosemirror-inputrules';
 
 import { SupportedKeys } from './supported-keys';
 
-type Keys = Extract<keyof SupportedKeys, 'SinkListItem' | 'LiftListItem' | 'NextListItem' | 'PopListItem' | 'TaskList'>;
+type Keys = Extract<
+    keyof SupportedKeys,
+    | 'SinkListItem'
+    | 'LiftListItem'
+    | 'NextListItem'
+    | 'PopListItem'
+    | 'SlideUpListItem'
+    | 'SlideDownListItem'
+    | 'TaskList'
+>;
 
 export const SplitTaskListItem = createCmdKey();
 export const SinkTaskListItem = createCmdKey();
 export const LiftTaskListItem = createCmdKey();
 export const PopTaskListItem = createCmdKey();
+export const SlideUpTaskListItem = createCmdKey();
+export const SlideDownTaskListItem = createCmdKey();
 export const TurnIntoTaskList = createCmdKey();
 
 export const taskListItem = createNode<Keys>((options, utils) => {
@@ -145,6 +156,8 @@ export const taskListItem = createNode<Keys>((options, utils) => {
             [SupportedKeys.SinkListItem]: createShortcut(SinkTaskListItem, 'Mod-]'),
             [SupportedKeys.LiftListItem]: createShortcut(LiftTaskListItem, 'Mod-Shift-['),
             [SupportedKeys.PopListItem]: createShortcut(PopTaskListItem, 'Mod-['),
+            [SupportedKeys.SlideUpListItem]: createShortcut(SlideUpTaskListItem, 'Alt-Shift-ArrowUp'),
+            [SupportedKeys.SlideDownListItem]: createShortcut(SlideDownTaskListItem, 'Alt-Shift-ArrowDown'),
             [SupportedKeys.TaskList]: createShortcut(TurnIntoTaskList, 'Mod-Alt-9'),
         },
         view: (editor, nodeType, node, view, getPos, decorations) => {
