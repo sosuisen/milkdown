@@ -94,7 +94,9 @@ const pickerPlugin = (utils: Utils) => {
                 rootElement: parentNode as HTMLElement,
                 autoFocusSearch: false,
                 style: 'twemoji',
-                theme: 'dark',
+                theme: 'light',
+                emojiSize: '18px',
+                showPreview: false,
                 zIndex: 99,
             });
             emojiPicker.on('emoji', (selection) => {
