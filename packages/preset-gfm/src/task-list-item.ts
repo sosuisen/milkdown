@@ -174,7 +174,6 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                 return options.view(editor, nodeType, node, view, getPos, decorations);
             }
             const fontAwesomeIcon = (id: string) => {
-                const span = document.createElement('span');
                 let fontAwesome = '';
                 switch (id) {
                     case 'checked':
@@ -195,9 +194,11 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                     default:
                         break;
                 }
+                const span = document.createElement('span');
                 span.className = 'icon ' + fontAwesome;
                 return span;
             };
+
             const listItem = document.createElement('li');
 
             /**
@@ -216,47 +217,49 @@ export const taskListItem = createNode<Keys>((options, utils) => {
             };
 
             const onCollapsedChange = (e: MouseEvent) => {
-                let isCollapsed = false;
-                let target: Element;
-                if ((e.target as HTMLLabelElement).children.length > 0) {
-                    target = (e.target as HTMLLabelElement).children[0];
-                } else {
-                    target = e.target as unknown as Element;
+                let targetListItem: HTMLElement | undefined = undefined;
+                let tmpNode = e.target as HTMLElement;
+                if (!tmpNode) return;
+                while (targetListItem === undefined) {
+                    if (tmpNode.parentNode) {
+                        tmpNode = tmpNode.parentNode as HTMLElement;
+                        if (tmpNode.tagName.match(/li/i)) {
+                            targetListItem = tmpNode;
+                            break;
+                        }
+                    } else {
+                        return;
+                    }
                 }
-                if (target.className === fontAwesomeIcon('collapsed').className) {
-                    isCollapsed = true;
-                } else if (target.className === fontAwesomeIcon('expanded').className) {
-                    isCollapsed = false;
-                } else {
-                    return;
-                }
+
+                const isCollapsed = targetListItem.dataset.collapsed === 'true' ? true : false;
+                const isChecked = targetListItem.dataset.checked === 'true' ? true : false;
 
                 const newCollapsed = !isCollapsed;
-
                 const newNode = view.state.doc.nodeAt(getPos());
-
                 let isChanged = false;
-                newNode?.forEach((child, offset) => {
-                    if (child.type.name === 'bullet_list' || child.type.name === 'ordered_list') {
-                        const newState = view.state.apply(
-                            view.state.tr.setNodeMarkup(getPos() + offset + 1, undefined, {
-                                collapsed: newCollapsed,
-                            }),
-                        );
-                        view.updateState(newState);
-                        isChanged = true;
-                    }
-                });
-
+                newNode === null || newNode === void 0
+                    ? void 0
+                    : newNode.forEach((child, offset) => {
+                          if (child.type.name === 'bullet_list' || child.type.name === 'ordered_list') {
+                              const newState = view.state.apply(
+                                  view.state.tr.setNodeMarkup(getPos() + offset + 1, undefined, {
+                                      collapsed: newCollapsed,
+                                  }),
+                              );
+                              view.updateState(newState);
+                              isChanged = true;
+                          }
+                      });
                 if (isChanged) {
                     const newState = view.state.apply(
                         view.state.tr.setNodeMarkup(getPos(), undefined, {
                             collapsed: newCollapsed,
+                            checked: isChecked,
                         }),
                     );
                     view.updateState(newState);
                 }
-
                 e.preventDefault();
             };
             collapseIconWrapper.addEventListener('mousedown', onCollapsedChange);
@@ -280,7 +283,6 @@ export const taskListItem = createNode<Keys>((options, utils) => {
             const checkboxWrapper = document.createElement('label');
             checkboxWrapper.setAttribute('class', 'check');
             const checkboxStyler = document.createElement('span');
-            const checkbox = document.createElement('input');
             const content = document.createElement('div');
             let icon = fontAwesomeIcon('unchecked');
             checkboxWrapper.appendChild(icon);
@@ -291,37 +293,41 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                 icon = nextIcon;
             };
             checkboxWrapper.contentEditable = 'false';
-            checkbox.type = 'checkbox';
-            const onChange = (event: Event) => {
-                const target = event.target;
-                if (!(target instanceof HTMLInputElement)) return;
+
+            checkboxWrapper.addEventListener('mousedown', (e) => {
                 if (!view.editable) {
-                    checkbox.checked = !checkbox.checked;
                     return;
                 }
+
+                let targetListItem = undefined;
+                let tmpNode = e.target as HTMLElement;
+                if (!tmpNode) return;
+                while (targetListItem === undefined) {
+                    if (tmpNode.parentNode) {
+                        tmpNode = tmpNode.parentNode as HTMLElement;
+                        if (tmpNode.tagName.match(/li/i)) {
+                            targetListItem = tmpNode;
+                            break;
+                        }
+                    } else {
+                        return;
+                    }
+                }
+                const isCollapsed = targetListItem.dataset.collapsed === 'true' ? true : false;
+                const isChecked = targetListItem.dataset.checked === 'true' ? true : false;
+
                 const { tr } = view.state;
                 view.dispatch(
                     tr.setNodeMarkup(getPos(), undefined, {
-                        checked: target.checked,
+                        collapsed: isCollapsed,
+                        checked: !isChecked,
                     }),
                 );
-            };
-            checkbox.addEventListener('change', onChange);
-            checkboxWrapper.addEventListener('mousedown', (e) => {
-                checkbox.checked = !checkbox.checked;
-                const fakeEvent = {
-                    target: checkbox,
-                };
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                onChange(fakeEvent);
+
                 e.preventDefault();
             });
             listItem.dataset.checked = node.attrs.checked;
-            if (node.attrs.checked) {
-                checkbox.setAttribute('checked', 'checked');
-            }
-            checkboxWrapper.append(checkbox, checkboxStyler);
+            checkboxWrapper.append(checkboxStyler);
 
             listItem.append(collapseIconWrapper, checkboxWrapper, content);
 
@@ -363,17 +369,11 @@ export const taskListItem = createNode<Keys>((options, utils) => {
                     }
 
                     listItem.dataset.checked = updatedNode.attrs.checked;
-                    if (updatedNode.attrs.checked) {
-                        checkbox.setAttribute('checked', 'checked');
-                    } else {
-                        checkbox.removeAttribute('checked');
-                    }
                     setIcon(updatedNode.attrs.checked ? 'checked' : 'unchecked');
 
                     return true;
                 },
                 destroy: () => {
-                    checkbox.removeEventListener('change', onChange);
                     collapseIconWrapper.removeEventListener('mousedown', onCollapsedChange);
                 },
             };
