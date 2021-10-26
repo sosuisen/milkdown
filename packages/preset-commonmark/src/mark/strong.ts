@@ -41,7 +41,7 @@ export const strong = createMark<Keys>((_, utils) => {
             },
         },
         inputRules: (markType) => [
-            markRule(/(?:__)([^_]+)(?:__)$/, markType),
+            /*markRule(/(?:__)([^_]+)(?:__)$/, markType),*/
             markRule(/(?:\*\*)([^*]+)(?:\*\*)$/, markType),
         ],
         commands: (markType) => [createCmd(ToggleBold, () => toggleMark(markType))],
