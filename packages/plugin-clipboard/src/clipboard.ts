@@ -43,9 +43,11 @@ export const clipboardPlugin = createProsePlugin((_, utils) => {
                 if (html.length > 0) {
                     return false;
                 }
-
-                text = text.replace(/(\n|\r\n|\r)/g, '\\');
-
+                // Remove trailing \r|\n because this should not be recognized as hard break.
+                text = text.replace(/[\r\n]+$/g, '');
+                // Replace CR, LF, CRLF with hard break
+                // NOTE: CRLF is repeated twice for some reason.
+                text = text.replace(/\r\n\r\n|\r\n|\r|\n/g, '\\\n');
                 const slice = parser(text);
                 if (!slice || typeof slice === 'string') return false;
 
