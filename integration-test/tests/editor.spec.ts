@@ -240,17 +240,16 @@ test.describe('shortcuts:', () => {
             ).toBeTruthy();
         });
 
-        test.only('paste text with line feeds', async ({ page }) => {
+        test('paste text with line feeds', async ({ page }) => {
             const textArea = await page.waitForSelector('#textarea');
             await textArea.type('The lunatic is on the grass.\nThe lunatic is on the grass!');
             // const value = await page.evaluate((el) => el.value, await page.waitForSelector('#textarea'));
             // console.log('### ' + value);
 
             await textArea.press('Control+A');
-            await textArea.press('Control+C');
+            await textArea.press('Control+X');
 
             const editor = await page.waitForSelector('.editor');
-            await page.pause();
 
             await editor.press('Control+V');
             // const value = await page.evaluate((el) => el.innerHTML, await page.waitForSelector('.editor'));
@@ -259,9 +258,53 @@ test.describe('shortcuts:', () => {
             await expect(page.locator('.editor > .paragraph')).toHaveCount(1);
             expect(
                 await editor.waitForSelector(
-                    '.paragraph >> text=The lunatic is on the grass. \\The lunatic is on the grass!',
+                    '.paragraph >> text=The lunatic is on the grass.\\The lunatic is on the grass!',
                 ),
             ).toBeTruthy();
+
+            await editor.press('Control+A');
+            await editor.press('Delete');
+
+            await textArea.type('The lunatic is on the grass.\r\nThe lunatic is on the grass!');
+            await textArea.press('Control+A');
+            await textArea.press('Control+X');
+            await editor.press('Control+V');
+            await expect(page.locator('.editor > .paragraph')).toHaveCount(1);
+            expect(
+                await editor.waitForSelector(
+                    '.paragraph >> text=The lunatic is on the grass.\\The lunatic is on the grass!',
+                ),
+            ).toBeTruthy();
+            await editor.press('Control+A');
+            await editor.press('Delete');
+
+            await textArea.type('The lunatic is on the grass.\rThe lunatic is on the grass!');
+            await textArea.press('Control+A');
+            await textArea.press('Control+X');
+            await editor.press('Control+V');
+            await expect(page.locator('.editor > .paragraph')).toHaveCount(1);
+            expect(
+                await editor.waitForSelector(
+                    '.paragraph >> text=The lunatic is on the grass.\\The lunatic is on the grass!',
+                ),
+            ).toBeTruthy();
+            await editor.press('Control+A');
+            await editor.press('Delete');
+
+            await textArea.type(
+                'The lunatic is on the grass.\nThe lunatic is on the grass!\nThe lunatic is on the grass!!\nThe lunatic is on the grass!!!\n',
+            );
+            await textArea.press('Control+A');
+            await textArea.press('Control+X');
+            await editor.press('Control+V');
+            await expect(page.locator('.editor > .paragraph')).toHaveCount(1);
+            expect(
+                await editor.waitForSelector(
+                    '.paragraph >> text=The lunatic is on the grass.\\The lunatic is on the grass!\\The lunatic is on the grass!!\\The lunatic is on the grass!!!\\',
+                ),
+            ).toBeTruthy();
+            await editor.press('Control+A');
+            await editor.press('Delete');
         });
     });
 
