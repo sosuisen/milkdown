@@ -7,6 +7,7 @@
         "build": "vite build",
         "serve": "vite preview --port 7000",
         "setup": "pnpm build && pnpm serve",
+        "test:debug": "cross-env PWDEBUG=1 playwright test",
         "test": "playwright test",
         "test:verbose": "playwright test --headed",
         "start:test": "start-server-and-test setup http-get://localhost:7000 test",
@@ -20,6 +21,7 @@
         "@sosuisen/milkdown-design-system": "workspace:*",
         "@sosuisen/milkdown-preset-commonmark": "workspace:*",
         "@sosuisen/milkdown-theme-nord": "workspace:*",
+        "@sosuisen/milkdown-plugin-clipboard": "workspace:*",
         "@sosuisen/milkdown-plugin-i18n": "workspace:*",
         "tslib": "^2.2.0"
     },

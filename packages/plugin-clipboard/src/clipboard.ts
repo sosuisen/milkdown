@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { parserCtx, schemaCtx, serializerCtx } from '@sosuisen/milkdown-core';
+import { editorViewOptionsCtx, parserCtx, schemaCtx, serializerCtx } from '@sosuisen/milkdown-core';
 import { createProsePlugin } from '@sosuisen/milkdown-utils';
 import { Node, Slice } from 'prosemirror-model';
 import { Plugin } from 'prosemirror-state';
@@ -23,6 +23,10 @@ const isPureText = (content: R | R[] | undefined | null): boolean => {
 export const clipboardPlugin = createProsePlugin((_, utils) => {
     const { ctx } = utils;
     const schema = ctx.get(schemaCtx);
+    ctx.update(editorViewOptionsCtx, (prev) => ({
+        editable: prev.editable ?? (() => true),
+    }));
+
     const parser = ctx.get(parserCtx);
     const serializer = ctx.get(serializerCtx);
     return new Plugin({
@@ -34,12 +38,16 @@ export const clipboardPlugin = createProsePlugin((_, utils) => {
                     return false;
                 }
 
-                const text = clipboardData.getData('text/plain');
+                let text = clipboardData.getData('text/plain');
                 const html = clipboardData.getData('text/html');
                 if (html.length > 0) {
                     return false;
                 }
-
+                // Remove trailing \r|\n because this should not be recognized as hard break.
+                text = text.replace(/[\r\n]+$/g, '');
+                // Replace CR, LF, CRLF with hard break
+                // NOTE: CRLF is repeated twice for some reason.
+                text = text.replace(/\r\n\r\n|\r\n|\r|\n/g, '\\\n');
                 const slice = parser(text);
                 if (!slice || typeof slice === 'string') return false;
 

@@ -239,6 +239,65 @@ test.describe('shortcuts:', () => {
                 ),
             ).toBeTruthy();
         });
+
+        test('paste text with line feeds', async ({ page }) => {
+            const editor = await page.waitForSelector('.editor');
+            const textArea = await page.waitForSelector('#textarea');
+
+            await textArea.type('The lunatic is on the grass.\nThe lunatic is on the grass!');
+            // const value = await page.evaluate((el) => el.value, await page.waitForSelector('#textarea'));
+            // console.log('### ' + value);
+            await textArea.press('Control+A');
+            await textArea.press('Control+X');
+
+            await editor.press('Control+V');
+            // const value = await page.evaluate((el) => el.innerHTML, await page.waitForSelector('.editor'));
+            // console.log('### ' + value);
+
+            await expect(page.locator('.editor > .paragraph')).toHaveCount(1);
+            expect(await page.evaluate((el) => el.innerHTML, await editor.waitForSelector('.paragraph'))).toBe(
+                'The lunatic is on the grass.<br class="hardbreak">The lunatic is on the grass!',
+            );
+            await editor.press('Control+A');
+            await editor.press('Delete');
+
+            await textArea.type('The lunatic is on the grass.\r\nThe lunatic is on the grass!');
+            await textArea.press('Control+A');
+            await textArea.press('Control+X');
+            await editor.press('Control+V');
+            await expect(page.locator('.editor > .paragraph')).toHaveCount(1);
+            expect(await page.evaluate((el) => el.innerHTML, await editor.waitForSelector('.paragraph'))).toBe(
+                'The lunatic is on the grass.<br class="hardbreak">The lunatic is on the grass!',
+            );
+            await editor.press('Control+A');
+            await editor.press('Delete');
+
+            await textArea.type('The lunatic is on the grass.\rThe lunatic is on the grass!');
+            await textArea.press('Control+A');
+            await textArea.press('Control+X');
+            await editor.press('Control+V');
+            await expect(page.locator('.editor > .paragraph')).toHaveCount(1);
+            expect(await page.evaluate((el) => el.innerHTML, await editor.waitForSelector('.paragraph'))).toBe(
+                'The lunatic is on the grass.<br class="hardbreak">The lunatic is on the grass!',
+            );
+            await editor.press('Control+A');
+            await editor.press('Delete');
+
+            await textArea.type(
+                'The lunatic is on the grass.\nThe lunatic is on the grass!\nThe lunatic is on the grass!!\nThe lunatic is on the grass!!!\n',
+            );
+            await textArea.press('Control+A');
+            await textArea.press('Control+X');
+            await editor.press('Control+V');
+            await expect(page.locator('.editor > .paragraph')).toHaveCount(1);
+            // NOTE: Trailing \n should be ignored.
+            expect(await page.evaluate((el) => el.innerHTML, await editor.waitForSelector('.paragraph'))).toBe(
+                'The lunatic is on the grass.<br class="hardbreak">The lunatic is on the grass!<br class="hardbreak">The lunatic is on the grass!!<br class="hardbreak">The lunatic is on the grass!!!',
+            );
+
+            await editor.press('Control+A');
+            await editor.press('Delete');
+        });
     });
 
     test.describe('node:', () => {
