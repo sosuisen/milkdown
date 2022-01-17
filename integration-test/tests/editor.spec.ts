@@ -239,6 +239,30 @@ test.describe('shortcuts:', () => {
                 ),
             ).toBeTruthy();
         });
+
+        test.only('paste text with line feeds', async ({ page }) => {
+            const textArea = await page.waitForSelector('#textarea');
+            await textArea.type('The lunatic is on the grass.\nThe lunatic is on the grass!');
+            // const value = await page.evaluate((el) => el.value, await page.waitForSelector('#textarea'));
+            // console.log('### ' + value);
+
+            await textArea.press('Control+A');
+            await textArea.press('Control+C');
+
+            const editor = await page.waitForSelector('.editor');
+            await page.pause();
+
+            await editor.press('Control+V');
+            // const value = await page.evaluate((el) => el.innerHTML, await page.waitForSelector('.editor'));
+            // console.log('### ' + value);
+
+            await expect(page.locator('.editor > .paragraph')).toHaveCount(1);
+            expect(
+                await editor.waitForSelector(
+                    '.paragraph >> text=The lunatic is on the grass. \\The lunatic is on the grass!',
+                ),
+            ).toBeTruthy();
+        });
     });
 
     test.describe('node:', () => {
