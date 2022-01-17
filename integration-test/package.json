@@ -7,7 +7,8 @@
         "build": "vite build",
         "serve": "vite preview --port 7000",
         "setup": "pnpm build && pnpm serve",
-        "test": "cross-env PWDEBUG=1 playwright test",
+        "test:debug": "cross-env PWDEBUG=1 playwright test",
+        "test": "playwright test",
         "test:verbose": "playwright test --headed",
         "start:test": "start-server-and-test setup http-get://localhost:7000 test",
         "start:test:verbose": "start-server-and-test setup http-get://localhost:7000 test:verbose"
