@@ -25,10 +25,10 @@
         "vite",
         "vitejs"
     ],
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "typescript.tsdk": "node_modules/typescript/lib",
     "npm.packageManager": "pnpm",
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": false
     }
 }
