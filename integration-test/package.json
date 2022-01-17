@@ -20,6 +20,7 @@
         "@sosuisen/milkdown-design-system": "workspace:*",
         "@sosuisen/milkdown-preset-commonmark": "workspace:*",
         "@sosuisen/milkdown-theme-nord": "workspace:*",
+        "@sosuisen/milkdown-plugin-clipboard": "workspace:*",
         "@sosuisen/milkdown-plugin-i18n": "workspace:*",
         "tslib": "^2.2.0"
     },
