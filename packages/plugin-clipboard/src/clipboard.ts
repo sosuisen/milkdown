@@ -38,16 +38,18 @@ export const clipboardPlugin = createProsePlugin((_, utils) => {
                     return false;
                 }
 
-                let text = clipboardData.getData('text/plain');
+                const text = clipboardData.getData('text/plain');
                 const html = clipboardData.getData('text/html');
                 if (html.length > 0) {
                     return false;
                 }
+                /*
                 // Remove trailing \r|\n because this should not be recognized as hard break.
                 text = text.replace(/[\r\n]+$/g, '');
                 // Replace CR, LF, CRLF with hard break
                 // NOTE: CRLF is repeated twice for some reason.
                 text = text.replace(/\r\n\r\n|\r\n|\r|\n/g, '\\\n');
+                */
                 const slice = parser(text);
                 if (!slice || typeof slice === 'string') return false;
 

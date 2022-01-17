@@ -240,6 +240,7 @@ test.describe('shortcuts:', () => {
             ).toBeTruthy();
         });
 
+        /*
         test('paste text with line feeds', async ({ page }) => {
             const editor = await page.waitForSelector('.editor');
             const textArea = await page.waitForSelector('#textarea');
@@ -298,6 +299,7 @@ test.describe('shortcuts:', () => {
             await editor.press('Control+A');
             await editor.press('Delete');
         });
+        */
     });
 
     test.describe('node:', () => {
