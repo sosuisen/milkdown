@@ -34,11 +34,13 @@ export const clipboardPlugin = createProsePlugin((_, utils) => {
                     return false;
                 }
 
-                const text = clipboardData.getData('text/plain');
+                let text = clipboardData.getData('text/plain');
                 const html = clipboardData.getData('text/html');
                 if (html.length > 0) {
                     return false;
                 }
+
+                text = text.replace(/(\n|\r\n|\r)/g, '\\');
 
                 const slice = parser(text);
                 if (!slice || typeof slice === 'string') return false;
