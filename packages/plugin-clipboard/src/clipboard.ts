@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { parserCtx, schemaCtx, serializerCtx } from '@sosuisen/milkdown-core';
+import { editorViewOptionsCtx, parserCtx, schemaCtx, serializerCtx } from '@sosuisen/milkdown-core';
 import { createProsePlugin } from '@sosuisen/milkdown-utils';
 import { Node, Slice } from 'prosemirror-model';
 import { Plugin } from 'prosemirror-state';
@@ -23,6 +23,10 @@ const isPureText = (content: R | R[] | undefined | null): boolean => {
 export const clipboardPlugin = createProsePlugin((_, utils) => {
     const { ctx } = utils;
     const schema = ctx.get(schemaCtx);
+    ctx.update(editorViewOptionsCtx, (prev) => ({
+        editable: prev.editable ?? (() => true),
+    }));
+
     const parser = ctx.get(parserCtx);
     const serializer = ctx.get(serializerCtx);
     return new Plugin({
