@@ -240,6 +240,31 @@ test.describe('shortcuts:', () => {
             ).toBeTruthy();
         });
 
+        test('copy and paste text with line feeds', async ({ page }) => {
+            // await page.pause();
+            const editor = await page.waitForSelector('.editor');
+            const textArea = await page.waitForSelector('#textarea');
+
+            await textArea.type('The lunatic is on the grass.\nThe lunatic is on the grass!');
+            await textArea.press('Control+A');
+            await textArea.press('Control+X');
+            await editor.press('Control+V');
+            await expect(page.locator('.editor > .paragraph')).toHaveCount(2);
+            // First paragraph
+            expect(await editor.waitForSelector('.paragraph >> text=The lunatic is on the grass.')).toBeTruthy();
+            // Second paragraph
+            expect(await editor.waitForSelector('.paragraph >> text=The lunatic is on the grass!')).toBeTruthy();
+            await editor.press('Control+A');
+            await editor.press('Control+X');
+            await textArea.press('Control+V');
+            // Single line feed
+            const value = await page.evaluate(
+                (el) => (el as HTMLTextAreaElement).value,
+                await page.waitForSelector('#textarea'),
+            );
+            expect(value).toBe('The lunatic is on the grass.\nThe lunatic is on the grass!');
+        });
+
         /*
         test('paste text with line feeds', async ({ page }) => {
             const editor = await page.waitForSelector('.editor');

@@ -1,7 +1,7 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import { editorViewOptionsCtx, parserCtx, schemaCtx, serializerCtx } from '@sosuisen/milkdown-core';
+import { editorViewOptionsCtx } from '@sosuisen/milkdown-core';
 import { createProsePlugin } from '@sosuisen/milkdown-utils';
-import { Node, Slice } from 'prosemirror-model';
+import { Node } from 'prosemirror-model';
 import { Plugin } from 'prosemirror-state';
 
 type R = Record<string, unknown>;
@@ -22,15 +22,16 @@ const isPureText = (content: R | R[] | undefined | null): boolean => {
 
 export const clipboardPlugin = createProsePlugin((_, utils) => {
     const { ctx } = utils;
-    const schema = ctx.get(schemaCtx);
+    // const schema = ctx.get(schemaCtx);
     ctx.update(editorViewOptionsCtx, (prev) => ({
         editable: prev.editable ?? (() => true),
     }));
 
-    const parser = ctx.get(parserCtx);
-    const serializer = ctx.get(serializerCtx);
+    // const parser = ctx.get(parserCtx);
+    // const serializer = ctx.get(serializerCtx);
     return new Plugin({
         props: {
+            /*
             handlePaste: (view, event) => {
                 const editable = view.props.editable?.(view.state);
                 const { clipboardData } = event;
@@ -43,13 +44,12 @@ export const clipboardPlugin = createProsePlugin((_, utils) => {
                 if (html.length > 0) {
                     return false;
                 }
-                /*
                 // Remove trailing \r|\n because this should not be recognized as hard break.
-                text = text.replace(/[\r\n]+$/g, '');
+                // text = text.replace(/[\r\n]+$/g, '');
                 // Replace CR, LF, CRLF with hard break
                 // NOTE: CRLF is repeated twice for some reason.
-                text = text.replace(/\r\n\r\n|\r\n|\r|\n/g, '\\\n');
-                */
+                // text = text.replace(/\r\n\r\n|\r\n|\r|\n/g, '\\\n');
+
                 const slice = parser(text);
                 if (!slice || typeof slice === 'string') return false;
 
@@ -59,15 +59,21 @@ export const clipboardPlugin = createProsePlugin((_, utils) => {
 
                 return true;
             },
+            */
             clipboardTextSerializer: (slice) => {
+                return (slice.content as unknown as Node).textBetween(0, slice.content.size, '\n');
+                /*
                 const isText = isPureText(slice.content.toJSON());
                 if (isText) {
-                    return (slice.content as unknown as Node).textBetween(0, slice.content.size, '\n\n');
+                  return (slice.content as unknown as Node).textBetween(0, slice.content.size, '\n\n');
                 }
                 const doc = schema.topNodeType.createAndFill(undefined, slice.content);
                 if (!doc) return '';
                 const value = serializer(doc);
+                // Remove consecutive line feeds
+                value = value.replace(/\r\n/)
                 return value;
+                */
             },
         },
     });
