@@ -53,6 +53,7 @@ export const heading = createNode<Keys>((options, utils) => {
         schema: {
             content: 'inline*',
             group: 'block',
+            defining: true,
             attrs: {
                 level: {
                     default: 1,

@@ -1,6 +1,6 @@
 {
     "name": "@sosuisen/milkdown-preset-gfm",
-    "version": "4.11.2-alpha.29",
+    "version": "4.11.2-alpha.30",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "types": "lib/index.d.ts",
