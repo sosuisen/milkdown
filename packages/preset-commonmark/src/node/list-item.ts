@@ -53,7 +53,8 @@ export const listItem = createNode<Keys>((options, utils) => {
             group: 'listItem',
             //            content: 'paragraph block*',
             // content: 'block+',
-            content: '(paragraph | blockquote | fence | hr | heading) (bullet_list | ordered_list)?',
+            // content: '(paragraph | blockquote | fence | hr | heading) (bullet_list | ordered_list)?',
+            content: 'block (bullet_list | ordered_list)?',
             defining: true,
             attrs: {
                 collapsed: {
