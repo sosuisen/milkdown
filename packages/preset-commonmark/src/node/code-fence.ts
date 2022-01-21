@@ -28,7 +28,8 @@ const languageOptions = [
     'markdown',
 ];
 
-const inputRegex = /^```(?<language>[a-z]*)? $/;
+// const inputRegex = /^```(?<language>[a-z]*)? $/;
+const inputRegex = /^(?:```(?<language>[a-z]*)? | {4})$/;
 
 export const TurnIntoCodeFence = createCmdKey();
 export const ExitCodeFence = createCmdKey();
