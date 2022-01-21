@@ -15,7 +15,10 @@ export const initTimerCtx = createCtx<Timer[]>([]);
 export const editorCtx = createCtx<Editor>({} as Editor);
 
 export type RemarkParser = ReturnType<typeof re>;
-export const remarkCtx: Meta<RemarkParser> = createCtx<RemarkParser>(re());
+
+const reWithOptions = re().data('settings', { listItemIndent: 'one' });
+// export const remarkCtx: Meta<RemarkParser> = createCtx<RemarkParser>(re());
+export const remarkCtx: Meta<RemarkParser> = createCtx<RemarkParser>(reWithOptions);
 
 export const init =
     (editor: Editor): MilkdownPlugin =>
@@ -23,7 +26,8 @@ export const init =
         pre.inject(editorCtx, editor)
             .inject(prosePluginsCtx)
             .inject(remarkPluginsCtx)
-            .inject(remarkCtx, re())
+            //            .inject(remarkCtx, re())
+            .inject(remarkCtx, reWithOptions)
             .inject(initTimerCtx, [ConfigReady])
             .record(Initialize);
 
